@@ -5,13 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:camtastic_application"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="#FFB51717">
-    <Grid Margin="6,17,4,-2">
-        <TextBox x:Name="CameraBrand" HorizontalAlignment="Left" Margin="64,347,0,0" TextWrapping="Wrap" Text="CameraBrand" VerticalAlignment="Top" Width="130" TextChanged="TextBox_TextChanged" Height="44"/>
-        <TextBox x:Name="CameraModel" HorizontalAlignment="Left" Margin="310,343,0,0" TextWrapping="Wrap" Text="CameraModel" VerticalAlignment="Top" Width="127" Height="46" TextChanged="CameraModel_TextChanged"/>
-        <TextBox x:Name="Rating" HorizontalAlignment="Left" Margin="506,344,0,0" TextWrapping="Wrap" Text="Rating" VerticalAlignment="Top" Width="100" TextChanged="Rating_TextChanged" Height="43"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=10000000}" Margin="167,66,229,134" SelectionChanged="ListBox_SelectionChanged"/>
-
+        Title="Simeon and Atila" Height="450" Width="800" Background="#FFB51717">
+    <Grid Margin="0,13,1,-13" RenderTransformOrigin="0.5,0.5">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-0.088"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="491*"/>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="238*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="Brand" HorizontalAlignment="Left" Margin="13,349,0,0" TextWrapping="Wrap" Text="CameraBrand" VerticalAlignment="Top" Width="121" Height="60" Background="{x:Null}"/>
+        <TextBox x:Name="Model" HorizontalAlignment="Left" Margin="157,352,0,0" TextWrapping="Wrap" Text="CameraModel" VerticalAlignment="Top" Width="142" Height="54" Background="{x:Null}"/>
+        <TextBox x:Name="Rating" HorizontalAlignment="Left" Margin="320,351,0,0" TextWrapping="Wrap" Text="Rating" VerticalAlignment="Top" Width="132" Height="55" Background="{x:Null}"/>
+        <Ellipse HorizontalAlignment="Left" Height="308" Margin="2,-203,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Fill="#FFD0700E">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-55.983"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse HorizontalAlignment="Left" Height="308" Margin="77,-208,0,0" VerticalAlignment="Top" Width="33" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Fill="#FF09BDD4">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-55.983"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse HorizontalAlignment="Left" Height="308" Margin="486,-198,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Fill="#FF060B61">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-52.351"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <TextBox x:Name="PlaceForPhoto" HorizontalAlignment="Left" Margin="22,26,0,0" TextWrapping="Wrap" Text="Photo" VerticalAlignment="Top" Width="413" Height="258" Background="{x:Null}"/>
 
     </Grid>
 </Window>
