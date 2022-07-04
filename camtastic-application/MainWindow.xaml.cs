@@ -24,5 +24,27 @@ namespace camtastic_application
         {
             InitializeComponent();
         }
+
+        private void CameraBrand(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void CameraModel(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Rating(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ListwithPhotos(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        
     }
 }

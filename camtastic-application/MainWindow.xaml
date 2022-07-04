@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:camtastic_application"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" Background="#FFB51717">
+    <Grid Margin="6,17,4,-2">
+        <TextBox x:Name="CameraBrand" HorizontalAlignment="Left" Margin="64,347,0,0" TextWrapping="Wrap" Text="CameraBrand" VerticalAlignment="Top" Width="130" TextChanged="TextBox_TextChanged" Height="44"/>
+        <TextBox x:Name="CameraModel" HorizontalAlignment="Left" Margin="310,343,0,0" TextWrapping="Wrap" Text="CameraModel" VerticalAlignment="Top" Width="127" Height="46" TextChanged="CameraModel_TextChanged"/>
+        <TextBox x:Name="Rating" HorizontalAlignment="Left" Margin="506,344,0,0" TextWrapping="Wrap" Text="Rating" VerticalAlignment="Top" Width="100" TextChanged="Rating_TextChanged" Height="43"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=10000000}" Margin="167,66,229,134" SelectionChanged="ListBox_SelectionChanged"/>
+
 
     </Grid>
 </Window>
