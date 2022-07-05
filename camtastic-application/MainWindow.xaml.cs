@@ -30,6 +30,7 @@ namespace camtastic_application
         {
             InitializeComponent();
             GetInfo();
+            
 
         }
         public void GetInfo()
