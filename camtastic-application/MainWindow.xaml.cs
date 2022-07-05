@@ -28,6 +28,7 @@ namespace camtastic_application
         {
             InitializeComponent();
             GetInfo();
+
         }
         public void GetInfo()
         {
@@ -72,6 +73,16 @@ namespace camtastic_application
                     continue;
                 }
             }
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Brand_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
