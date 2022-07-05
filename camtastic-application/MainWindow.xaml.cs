@@ -20,11 +20,16 @@ namespace camtastic_application
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<string> cameraBrands = new List<string>();
+        public List<string> cameraModels = new List<string>();
+        public List<int> ratings = new List<int>();
         public MainWindow()
         {
             InitializeComponent();
         }
+        public void GetInfo()
+        {
 
-        
+        }
     }
 }
