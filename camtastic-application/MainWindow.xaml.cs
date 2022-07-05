@@ -42,7 +42,8 @@ namespace camtastic_application
                     photosInOneBrand = new List<Photo>();
                     addedKey = false;
                 }
-                tempPhoto = new Photo();     //this resets the photo back to a null state
+                tempPhoto = new Photo();     //this resets the photo and camera back to a null state
+                tempCamera = new Camera();    
                 string url = "https://photo-forum.net/i/" + i;
                 var web = new HtmlAgilityPack.HtmlWeb();    //htmlAgilityPack doing its magic
                 HtmlDocument doc = web.Load(url);
@@ -51,8 +52,11 @@ namespace camtastic_application
                     int rating = int.Parse(doc.DocumentNode.SelectNodes("/html/body/div[4]/div[5]/div[2]/div/div/div[2]/div/ul[1]/li[1]/ul/li[1]/span[2]/span")[0].InnerText);
                     string cameraModel = doc.DocumentNode.SelectNodes("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[2]/div[2]/span")[0].InnerText;
                     string cameraBrand = doc.DocumentNode.SelectNodes("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/span")[0].InnerText;   //we grab values using xPath (a thing you copy off google idk much either lol)
+                    tempCamera.CameraBrand = cameraBrand;
+                    tempCamera.CameraModel = cameraModel;
                     tempPhoto.Url = url;
                     tempPhoto.Rating = rating;
+                    tempPhoto.Camera = tempCamera;
                     if (photosPerBrand.ContainsKey(cameraBrand))  //checking if camerabrand already exists in dictionary
                     {
                         photosInOneBrand.Add(tempPhoto);
