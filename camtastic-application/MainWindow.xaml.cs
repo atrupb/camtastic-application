@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Data;
+using System.Windows.Media.Imaging;
 
 namespace camtastic_application
 {
@@ -33,14 +35,6 @@ namespace camtastic_application
 
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Brand_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        
     }
 }
