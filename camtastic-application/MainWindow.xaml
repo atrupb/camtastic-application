@@ -82,7 +82,7 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Ellipse Grid.Column="1" Margin="724,364,17,-439" Grid.Row="1" Fill="#FFC7740F" RenderTransformOrigin="0.5,0.5">
+        <Ellipse Grid.Column="1" Margin="721,372,21,-438" Grid.Row="1" Fill="#FFC7740F" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
