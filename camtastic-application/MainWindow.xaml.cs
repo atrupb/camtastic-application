@@ -26,8 +26,19 @@ namespace camtastic_application
         public MainWindow()
         {
             InitializeComponent();
+            
         }
         public void GetInfo()
+        {
+
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Brand_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:camtastic_application"
         mc:Ignorable="d"
-        Title="Simeon and Atila" Height="450" Width="800" Background="#FFB51717">
-    <Grid Margin="0,13,1,-13" RenderTransformOrigin="0.5,0.5">
+        Title="Simeon and Atila" Height="579" Width="1209" Background="#FF1E085D">
+    <Grid Margin="17,-89,-12,-1" RenderTransformOrigin="0.5,0.5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="401*"/>
+        </Grid.RowDefinitions>
         <Grid.RenderTransform>
             <TransformGroup>
                 <ScaleTransform/>
@@ -16,44 +20,92 @@
             </TransformGroup>
         </Grid.RenderTransform>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="491*"/>
-            <ColumnDefinition Width="65*"/>
-            <ColumnDefinition Width="238*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="619*"/>
+            <ColumnDefinition Width="82*"/>
+            <ColumnDefinition Width="7.873"/>
+            <ColumnDefinition Width="231.626"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="Brand" HorizontalAlignment="Left" Margin="13,349,0,0" TextWrapping="Wrap" Text="CameraBrand" VerticalAlignment="Top" Width="121" Height="60" Background="{x:Null}"/>
-        <TextBox x:Name="Model" HorizontalAlignment="Left" Margin="157,352,0,0" TextWrapping="Wrap" Text="CameraModel" VerticalAlignment="Top" Width="142" Height="54" Background="{x:Null}"/>
-        <TextBox x:Name="Rating" HorizontalAlignment="Left" Margin="320,351,0,0" TextWrapping="Wrap" Text="Rating" VerticalAlignment="Top" Width="132" Height="55" Background="{x:Null}"/>
-        <Ellipse HorizontalAlignment="Left" Height="308" Margin="2,-203,0,0" VerticalAlignment="Top" Width="34" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Fill="#FFD0700E">
+        <TextBox x:Name="Model" HorizontalAlignment="Left" Margin="415,497,0,0" TextWrapping="Wrap" Text="CameraModel" VerticalAlignment="Top" Width="105" Height="37"  Grid.Row="1" Grid.Column="1" Background="{x:Null}"/>
+        <TextBox x:Name="Rating" HorizontalAlignment="Left" Margin="551,491,0,0" TextWrapping="Wrap" Text="Rating" VerticalAlignment="Top" Width="108" Height="38" Grid.Row="1" Grid.Column="1" Background="{x:Null}"/>
+        <Ellipse HorizontalAlignment="Left" Height="549" Margin="23,-331,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.5,0.5" Grid.Column="4" Fill="#FFD0700E" Grid.RowSpan="2">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-55.983"/>
+                    <RotateTransform Angle="39.8"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Ellipse HorizontalAlignment="Left" Height="308" Margin="77,-208,0,0" VerticalAlignment="Top" Width="33" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Fill="#FF09BDD4">
+        <Ellipse HorizontalAlignment="Left" Height="549" Margin="160,-327,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.5,0.5" Grid.Column="4" Fill="#FF09BDD4" Grid.RowSpan="2">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-55.983"/>
+                    <RotateTransform Angle="41.071"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Ellipse HorizontalAlignment="Left" Height="308" Margin="486,-198,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Fill="#FF060B61">
+        <Ellipse HorizontalAlignment="Left" Height="549" Margin="27,-336,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.5,0.5" Fill="#FFB9130B" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="3">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-52.351"/>
+                    <RotateTransform Angle="40.577"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <TextBox x:Name="PlaceForPhoto" HorizontalAlignment="Left" Margin="22,26,0,0" TextWrapping="Wrap" Text="Photo" VerticalAlignment="Top" Width="413" Height="258" Background="{x:Null}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="3,197,0,0" TextWrapping="Wrap" Text="Enjoy the work of experienced photographers" VerticalAlignment="Top" Height="130" Width="169" FontFamily="Segoe UI Semibold" FontSize="24" FontWeight="Normal" FontStyle="Italic" Grid.Row="1" Foreground="White" Grid.Column="1"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="132,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="230" Foreground="White" Text="S&amp;A Corp." FontFamily="Lato Semibold" FontSize="36" Grid.Row="1"/>
+        <Image Grid.ColumnSpan="2" Height="100" Grid.RowSpan="2" Width="100"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="268,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="5,335,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Inspire yourself and learn about the photo while you are watching the art work of people around the world" VerticalAlignment="Top" Height="75" Width="210" Foreground="White" FontFamily="Arial" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.009"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.004"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Ellipse Grid.Column="2" HorizontalAlignment="Left" Height="549" Margin="52,408,0,0" Grid.Row="1" VerticalAlignment="Top" Width="88" Fill="#FF14B5C1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="42.294"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse Grid.Column="1" Margin="724,364,17,-439" Grid.Row="1" Fill="#FFC7740F" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="46.889"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse Grid.Column="1" HorizontalAlignment="Left" Height="549" Margin="609,381,0,0" Grid.Row="1" VerticalAlignment="Top" Width="88" Fill="#FFAD1212" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="46.164"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <ListBox Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="264,103,156,72" SelectionChanged="ListBox_SelectionChanged">
+        </ListBox>
+        <TextBox x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="274,497,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="41" Background="{x:Null}" TextChanged="Brand_TextChanged"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Source="/Image/Firefox-Browser-Logo-Transparent-PNG.png" Height="100" Margin="14,17,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Window>
