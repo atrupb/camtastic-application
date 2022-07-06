@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace camtastic_application
 {
     /// <summary>
@@ -22,18 +23,17 @@ namespace camtastic_application
     /// </summary>
     public partial class MainWindow : Window
     {
+        DatabaseHandler database = new DatabaseHandler();
         Dictionary<string, List<Photo>> photosPerBrand = new Dictionary<string, List<Photo>>();
         bool addedKey;
         public MainWindow()
         {
             InitializeComponent();
             GetInfo();
-            
-
         }
         public void GetInfo()
         {
-          
+            database.Connect();
             List<Photo> photosInOneBrand = new List<Photo>();   //assigning a new temporary camera and photo, which we will play around with now. also adding a list for photos in a single brand to add to the dictionary
             Photo tempPhoto = new Photo();
             Camera tempCamera = new Camera();
@@ -67,9 +67,8 @@ namespace camtastic_application
                     {
                         photosPerBrand.Add(cameraBrand, photosInOneBrand);
                         addedKey = true;
-                    }
 
-                    
+                    }
                 }
                 catch   //catch construct just skips to next iteration, since we skip pictures without metadata (untested, hopefully it sends an error)
                 {
@@ -82,13 +81,5 @@ namespace camtastic_application
                  */
             }
         }
-        
-
-
-
-
-        }
-   
     }
-    
 }
