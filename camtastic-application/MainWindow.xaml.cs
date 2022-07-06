@@ -62,7 +62,7 @@ namespace camtastic_application
             List<Photo> photosInOneBrand = new List<Photo>();   //assigning a new temporary camera and photo, which we will play around with now. also adding a list for photos in a single brand to add to the dictionary
             Photo tempPhoto = new Photo();
             Camera tempCamera = new Camera();
-            for (var i = 0; i < 50; i++)  //beginning loop right here, this will cycle between the websites and get the information
+            for (var i = start; i < end; i++)  //beginning loop right here, this will cycle between the websites and get the information
             {
                 if(addedKey == true)  //if a key was added to the dictionary on the last cycle, we reset the list that contains all photos in one brand
                 {
