@@ -68,19 +68,24 @@ namespace camtastic_application
                         photosPerBrand.Add(cameraBrand, photosInOneBrand);
                         addedKey = true;
                     }
+
+                    
                 }
                 catch   //catch construct just skips to next iteration, since we skip pictures without metadata (untested, hopefully it sends an error)
                 {
                     continue;
                 }
+
+                /* Brand.Text = cameraBrand.ToString();
+                 * Model.Text = cameraModel.ToString();
+                 * Rating.Text = rating.ToString():
+                 */
             }
         }
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        
 
-        }
-        private void Brand_TextChanged(object sender, TextChangedEventArgs e)
-        {
+
+
 
         }
    
