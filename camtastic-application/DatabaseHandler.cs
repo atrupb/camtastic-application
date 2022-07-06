@@ -18,9 +18,9 @@ namespace camtastic_application
             MySqlConnection conn = new MySqlConnection(connStr);
             conn.Open();
         }
-        void AddingData(int rating, string cameraBrand, string cameraModel, string url)
+        void AddData(int rating, string cameraBrand, string cameraModel, string url)
         {
-            string sqlQuery = "INSERT INTO "
+           
         }
     }
 }

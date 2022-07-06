@@ -1,4 +1,6 @@
-﻿using HtmlAgilityPack;
+﻿
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
 
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Threading;
 
 namespace camtastic_application
 {
@@ -23,17 +25,40 @@ namespace camtastic_application
     /// </summary>
     public partial class MainWindow : Window
     {
+        ChromeDriverService service;
+        ChromeOptions options;
+
         DatabaseHandler database = new DatabaseHandler();
+
         Dictionary<string, List<Photo>> photosPerBrand = new Dictionary<string, List<Photo>>();
         bool addedKey;
         public MainWindow()
         {
+            service = ChromeDriverService.CreateDefaultService();
+            service.HideCommandPromptWindow = true;
+            options = new ChromeOptions();
+            options.AddArguments(new List<string>() //assigning a bunch of chromedrive options for simplicity sake
+            {
+                "--silent-launch",
+                "--no-startup-window",
+                "--no-sandbox",
+                "--headless",
+                "--disable-gpu"
+            });
+
             InitializeComponent();
-            GetInfo();
+            GetInfo(); //starts multithreading/searching process
         }
         public void GetInfo()
         {
-            database.Connect();
+            for(var i = 0; i < 20; i++)
+            {
+                ThreadPool.QueueUserWorkItem(o => thread1(i*1000, i*1000+1000)); //a thread is created per 1000 pics (for ex. 0-1000, 1000-2000, 2000-3000 and so on)(thread work time depends on users cpu)
+            }
+        }
+        public void thread1(int start, int end)
+        {
+            var web = new ChromeDriver(service, options);  //selenium doing its magic
             List<Photo> photosInOneBrand = new List<Photo>();   //assigning a new temporary camera and photo, which we will play around with now. also adding a list for photos in a single brand to add to the dictionary
             Photo tempPhoto = new Photo();
             Camera tempCamera = new Camera();
@@ -45,15 +70,15 @@ namespace camtastic_application
                     addedKey = false;
                 }
                 tempPhoto = new Photo();     //this resets the photo and camera back to a null state
-                tempCamera = new Camera();    
+                tempCamera = new Camera();
+            
                 string url = "https://photo-forum.net/i/" + i;
-                var web = new HtmlAgilityPack.HtmlWeb();    //htmlAgilityPack doing its magic
-                HtmlDocument doc = web.Load(url);
+                web.Navigate().GoToUrl(url);
                 try   //a try construct, if it doesnt find a rating or cameramodel or camerabrand, it should skip to catch
                 {
-                    int rating = int.Parse(doc.DocumentNode.SelectNodes("/html/body/div[4]/div[5]/div[2]/div/div/div[2]/div/ul[1]/li[1]/ul/li[1]/span[2]/span")[0].InnerText);
-                    string cameraModel = doc.DocumentNode.SelectNodes("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[2]/div[2]/span")[0].InnerText;
-                    string cameraBrand = doc.DocumentNode.SelectNodes("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/span")[0].InnerText;   //we grab values using xPath (a thing you copy off google idk much either lol)
+                    int rating = int.Parse(web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[2]/div/div/div[2]/div/ul[1]/li[1]/ul/li[1]/span[2]/span")).Text);
+                    string cameraModel = web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/span")).Text;
+                    string cameraBrand = web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[2]/div[2]/span")).Text; //we grab values using xPath (a thing you copy off google idk much either lol)
                     tempCamera.CameraBrand = cameraBrand;
                     tempCamera.CameraModel = cameraModel;
                     tempPhoto.Url = url;
