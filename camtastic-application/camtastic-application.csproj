@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>C:\Program Files\dotnet\sdk\6.0.301\Sdks\Microsoft.NET.Sdk\targets\-windows</TargetFramework>
+    <TargetFramework>C:\Program Files\dotnet\sdk\3.1.420\Sdks\Microsoft.NET.Sdk\targets</TargetFramework>
     <RootNamespace>camtastic_application</RootNamespace>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
