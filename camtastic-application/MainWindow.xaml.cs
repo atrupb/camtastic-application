@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace camtastic_application
 {
@@ -31,9 +32,10 @@ namespace camtastic_application
         DatabaseHandler database = new DatabaseHandler();
 
         Dictionary<string, List<Photo>> photosPerBrand = new Dictionary<string, List<Photo>>();
-        bool addedKey;
+        List<Photo> photosInOneBrand = new List<Photo>();   //tomorrow, i will make it so that i take information from the database after info gathering process is over and assign them to these lists.
         public MainWindow()
         {
+            database.Connect(); // this connects us to our database
             service = ChromeDriverService.CreateDefaultService();
             service.HideCommandPromptWindow = true;
             options = new ChromeOptions();
@@ -51,51 +53,34 @@ namespace camtastic_application
         }
         public void GetInfo()
         {
-            for(var i = 0; i < 20; i++)
+            for (var i = 0; i < 20; i++)
             {
-                ThreadPool.QueueUserWorkItem(o => thread1(i*1000, i*1000+1000)); //a thread is created per 1000 pics (for ex. 0-1000, 1000-2000, 2000-3000 and so on)(thread work time depends on users cpu)
+                ThreadPool.QueueUserWorkItem(o => thread1(i * 5000, i * 5000 + 5000)); //per how many pics should we have a thread? ive changed it to 5000, but i think its still too little. maybe we can increase thread amount?
             }
         }
         public void thread1(int start, int end)
         {
             var web = new ChromeDriver(service, options);  //selenium doing its magic
-            List<Photo> photosInOneBrand = new List<Photo>();   //assigning a new temporary camera and photo, which we will play around with now. also adding a list for photos in a single brand to add to the dictionary
-            Photo tempPhoto = new Photo();
-            Camera tempCamera = new Camera();
             for (var i = start; i < end; i++)  //beginning loop right here, this will cycle between the websites and get the information
             {
-                if(addedKey == true)  //if a key was added to the dictionary on the last cycle, we reset the list that contains all photos in one brand
-                {
-                    photosInOneBrand = new List<Photo>();
-                    addedKey = false;
-                }
-                tempPhoto = new Photo();     //this resets the photo and camera back to a null state
-                tempCamera = new Camera();
-            
-                string url = "https://photo-forum.net/i/" + i;
+                string url = "https://photo-forum.net/i/2422936";
                 web.Navigate().GoToUrl(url);
                 try   //a try construct, if it doesnt find a rating or cameramodel or camerabrand, it should skip to catch
                 {
                     int rating = int.Parse(web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[2]/div/div/div[2]/div/ul[1]/li[1]/ul/li[1]/span[2]/span")).Text);
-                    string cameraModel = web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/span")).Text;
-                    string cameraBrand = web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[2]/div[2]/span")).Text; //we grab values using xPath (a thing you copy off google idk much either lol)
-                    tempCamera.CameraBrand = cameraBrand;
-                    tempCamera.CameraModel = cameraModel;
-                    tempPhoto.Url = url;
-                    tempPhoto.Rating = rating;
-                    tempPhoto.Camera = tempCamera;
-                    if (photosPerBrand.ContainsKey(cameraBrand))  //checking if camerabrand already exists in dictionary
+                    string cameraBrand = web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/span")).GetAttribute("textContent");
+                    string cameraModel = web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[2]/div[2]/span")).GetAttribute("textContent"); //we grab values using xPath (a thing you copy off google idk much either lol)
+                    Regex timeFormatCheck = new Regex(@"(?:0[1-9]|[12][0-9]|3[01])[-/.](?:0[1-9]|1[012])[-/.](?:19\d{2}|20[01][0-9]|2020)\b"); //ive used a regex to check dates, its a safety net so no wrong info gets sent into the database
+                    if (timeFormatCheck.IsMatch(cameraModel) || timeFormatCheck.IsMatch(cameraBrand))
                     {
-                        photosInOneBrand.Add(tempPhoto);
+                        continue; // if regex matches (if its a date), skip this one
                     }
-                    else // if it doesnt, we add a new key with the cameraBrand and the list of pictures we were saving (this might pose a few issues, but we will test and get them fixed, of course)
+                    else
                     {
-                        photosPerBrand.Add(cameraBrand, photosInOneBrand);
-                        addedKey = true;
-
+                        database.AddData(rating, cameraBrand, cameraModel, url); //else, we send it to the database
                     }
                 }
-                catch   //catch construct just skips to next iteration, since we skip pictures without metadata (untested, hopefully it sends an error)
+                catch(OpenQA.Selenium.NoSuchElementException)   //catch construct just skips to next iteration, since we skip pictures without metadata (not sure if this does anything, however id rather keep it here as a secondary safety net)
                 {
                     continue;
                 }

@@ -12,15 +12,25 @@ namespace camtastic_application
 {
     class DatabaseHandler
     {
-        public void Connect()
+        MySqlConnection conn;
+        public void Connect() //method to connect to SQL database
         {
-            string connStr = "server=localhost;user=root;database=world;port=3306;password=12345";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            conn.Open();
+            string connStr = "server=localhost;user=root;database=project;port=3306;password=12345"; //IMPORTANT!!!! YOU NEED TO CHANGE SOME OF THE INFO SO IT WORKS ON YOUR OWN DATABASE!
+            conn = new MySqlConnection(connStr);
+            conn.Open(); //opening sql connection
         }
-        void AddData(int rating, string cameraBrand, string cameraModel, string url)
+        public void AddData(int rating, string cameraBrand, string cameraModel, string url) //method to add a new photo to the database
         {
-           
+            string sqlQuery = $"INSERT INTO `photo` VALUES ('{url}', '{cameraBrand}', '{cameraModel}', '{rating}')"; //ive adjusted the table slightly, ive sent you the code to create one.
+            MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
+            try
+            {
+                cmd.ExecuteNonQuery(); //executes command
+            }
+            catch
+            {
+                return; //as a safety net, if theres a duplicate url we dont do anything, i will remove this tomorrow/later if i see its useless.
+            }
         }
     }
 }
