@@ -63,7 +63,7 @@ namespace camtastic_application
             var web = new ChromeDriver(service, options);  //selenium doing its magic
             for (var i = start; i < end; i++)  //beginning loop right here, this will cycle between the websites and get the information
             {
-                string url = "https://photo-forum.net/i/2422936";
+                string url = "https://photo-forum.net/i/" + i;
                 web.Navigate().GoToUrl(url);
                 try   //a try construct, if it doesnt find a rating or cameramodel or camerabrand, it should skip to catch
                 {
