@@ -68,7 +68,7 @@ namespace camtastic_application
                         photosPerBrand.Add(cameraBrand, photosInOneBrand);
                         addedKey = true;
                     }
-
+                    
                     
                 }
                 catch   //catch construct just skips to next iteration, since we skip pictures without metadata (untested, hopefully it sends an error)
@@ -89,6 +89,6 @@ namespace camtastic_application
 
         }
    
-    }
+    
     
 }
