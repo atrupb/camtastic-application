@@ -15,9 +15,17 @@ namespace camtastic_application
         MySqlConnection conn;
         public void Connect() //method to connect to SQL database
         {
-            string connStr = "server=localhost;user=root;database=project;port=3306;password=12345"; //IMPORTANT!!!! YOU NEED TO CHANGE SOME OF THE INFO SO IT WORKS ON YOUR OWN DATABASE!
-            conn = new MySqlConnection(connStr);
-            conn.Open(); //opening sql connection
+
+            try
+            {
+                string connStr = "server=localhost;user=root;database=project;port=3306;password=12345"; //IMPORTANT!!!! YOU NEED TO CHANGE SOME OF THE INFO SO IT WORKS ON YOUR OWN DATABASE!
+                conn = new MySqlConnection(connStr);
+                conn.Open(); //opening sql connection
+            }
+            catch (MySqlException)
+            {
+                Console.WriteLine("There is an Error.");
+            }
         }
         public void AddData(int rating, string cameraBrand, string cameraModel, string url) //method to add a new photo to the database
         {

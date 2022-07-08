@@ -68,8 +68,8 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <TextBlock HorizontalAlignment="Left" Margin="3,197,0,0" TextWrapping="Wrap" Text="Enjoy the work of experienced photographers" VerticalAlignment="Top" Height="130" Width="169" FontFamily="Segoe UI Semibold" FontSize="24" FontWeight="Normal" FontStyle="Italic" Grid.Row="1" Foreground="White" Grid.Column="1"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="132,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="230" Foreground="White" Text="S&amp;A Corp." FontFamily="Lato Semibold" FontSize="36" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="3,197,0,0" TextWrapping="Wrap" Text="Enjoy the work of experienced photographers" VerticalAlignment="Top" Height="130" Width="169" FontFamily="Segoe UI Semibold" FontSize="24" FontWeight="Normal" FontStyle="Italic" Grid.Row="1" Grid.Column="1" Foreground="White"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="132,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Grid.Row="1"><Run Language="de-de" Text="Photo search app"/></TextBlock>
         <Image Grid.ColumnSpan="2" Height="100" Grid.RowSpan="2" Width="100"/>
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="268,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="5,335,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Inspire yourself and learn about the photo while you are watching the art work of people around the world" VerticalAlignment="Top" Height="75" Width="210" Foreground="White" FontFamily="Arial" RenderTransformOrigin="0.5,0.5">
@@ -121,10 +121,16 @@
                 </LinearGradientBrush>
             </CheckBox.Background>
         </CheckBox>
-        <TextBox x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="244,481,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Background="{x:Null}" Height="31"/>
-        <TextBox x:Name="Model" Grid.Column="1" HorizontalAlignment="Left" Margin="391,480,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Background="{x:Null}" Height="31"/>
-        <TextBox x:Name="Rating" Grid.Column="1" HorizontalAlignment="Left" Margin="535,480,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Background="{x:Null}" Height="31"/>
-        <Button x:Name="getInfoButton" Content="Click here to get information" Grid.Column="2" HorizontalAlignment="Left" Margin="99,209,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="79" Width="195" Click="GetInfoButton_Click"/>
+        <TextBox x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="227,432,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Background="{x:Null}" Height="60"/>
+        <TextBox x:Name="Model" Grid.Column="1" HorizontalAlignment="Left" Margin="434,432,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Background="{x:Null}" Height="62"/>
+        <TextBox x:Name="Rating" Grid.Column="1" HorizontalAlignment="Left" Margin="621,433,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" Height="64"/>
+        <Button x:Name="getInfoButton" Content="Click here to get information" Grid.Column="1" HorizontalAlignment="Left" Margin="691,209,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="131" Width="363" Click="GetInfoButton_Click" Background="{x:Null}"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="692,134,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="59" Width="361" FontSize="20" FontFamily="Segoe UI Black" Foreground="White"><Run Text="The additional information of the photo:"/><LineBreak/><Run/></TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="225,409,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Brand of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="425,408,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Model of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="618,408,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Rating of the photo" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="341,139,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Enter the URL of the Photo here:" VerticalAlignment="Top" Height="83" Width="322" Foreground="#FFFBFBFB" FontFamily="Arial Black" FontSize="16"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="326,205,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="138" Background="{x:Null}"/>
 
     </Grid>
 </Window>
