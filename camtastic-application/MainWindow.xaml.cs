@@ -18,6 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace camtastic_application
 {
@@ -39,7 +40,7 @@ namespace camtastic_application
             service = ChromeDriverService.CreateDefaultService();
             service.HideCommandPromptWindow = true;
             options = new ChromeOptions();
-            options.AddArguments(new List<string>() //assigning a bunch of chromedrive options for simplicity sake
+            options.AddArguments(new List<string>() //assigning a bunch of chromedrive options for optimization
             {
                 "--silent-launch",
                 "--no-startup-window",
@@ -47,23 +48,25 @@ namespace camtastic_application
                 "--headless",
                 "--disable-gpu"
             });
-
+            options.PageLoadStrategy = PageLoadStrategy.Eager;
             InitializeComponent();
-            GetInfo(); //starts multithreading/searching process
         }
         public void GetInfo()
         {
-            for (var i = 0; i < 20; i++)
+            for (var i = 0; i < 6000; i++)
             {
-                ThreadPool.QueueUserWorkItem(o => thread1(i * 5000, i * 5000 + 5000)); //per how many pics should we have a thread? ive changed it to 5000, but i think its still too little. maybe we can increase thread amount?
+                ThreadPool.QueueUserWorkItem(o => thread1(i * 500 + 1, i * 500 + 500)); //per how many pics should we have a thread? ive changed it to 5000, but i think its still too little. maybe we can increase thread amount?
+                Thread.Sleep(5000);
             }
         }
         public void thread1(int start, int end)
         {
             var web = new ChromeDriver(service, options);  //selenium doing its magic
+            
             for (var i = start; i < end; i++)  //beginning loop right here, this will cycle between the websites and get the information
             {
                 string url = "https://photo-forum.net/i/" + i;
+                Debug.WriteLine(url);
                 web.Navigate().GoToUrl(url);
                 try   //a try construct, if it doesnt find a rating or cameramodel or camerabrand, it should skip to catch
                 {
@@ -84,11 +87,19 @@ namespace camtastic_application
                 {
                     continue;
                 }
-
                 /* Brand.Text = cameraBrand.ToString();
                  * Model.Text = cameraModel.ToString();
                  * Rating.Text = rating.ToString():
                  */
+            }
+            web.Close();
+        }
+        private void GetInfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(ThreadPool.PendingWorkItemCount == 0) 
+            {
+                getInfoButton.Content = "Getting info, please wait.";
+                GetInfo();
             }
         }
     }

@@ -124,6 +124,7 @@
         <TextBox x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="244,481,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Background="{x:Null}" Height="31"/>
         <TextBox x:Name="Model" Grid.Column="1" HorizontalAlignment="Left" Margin="391,480,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" Background="{x:Null}" Height="31"/>
         <TextBox x:Name="Rating" Grid.Column="1" HorizontalAlignment="Left" Margin="535,480,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="122" Background="{x:Null}" Height="31"/>
+        <Button x:Name="getInfoButton" Content="Click here to get information" Grid.Column="2" HorizontalAlignment="Left" Margin="99,209,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="3" Height="79" Width="195" Click="GetInfoButton_Click"/>
 
     </Grid>
 </Window>

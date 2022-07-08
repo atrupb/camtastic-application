@@ -23,14 +23,7 @@ namespace camtastic_application
         {
             string sqlQuery = $"INSERT INTO `photo` VALUES ('{url}', '{cameraBrand}', '{cameraModel}', '{rating}')"; //ive adjusted the table slightly, ive sent you the code to create one.
             MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
-            try
-            {
-                cmd.ExecuteNonQuery(); //executes command
-            }
-            catch
-            {
-                return; //as a safety net, if theres a duplicate url we dont do anything, i will remove this tomorrow/later if i see its useless.
-            }
-        }
+            cmd.ExecuteNonQuery(); //executes command
+        }    
     }
 }
