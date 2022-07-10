@@ -96,31 +96,23 @@ namespace camtastic_application
         /// </summary>
         public void SortInfo()
         {
-            int entryAmount = database.FindDataAmount(); //checks how much rows there are
             List<Photo> photosInOneBrand = new List<Photo>();
-            for (var i = 0; i < entryAmount; i++)
+
+            List<Photo> allPhotos = database.GrabData();
+
+            foreach(Photo photo in allPhotos)
             {
-                Photo tempPhoto = new Photo();
-                Camera tempCamera = new Camera(); // creating temp objects to play around with
-                string url = database.GrabData(i).Item1;
-                string cameraBrand = database.GrabData(i).Item2;
-                string cameraModel = database.GrabData(i).Item3;
-                int rating = database.GrabData(i).Item4;
-                tempCamera.CameraBrand = cameraBrand;
-                tempCamera.CameraModel = cameraModel;
-                tempPhoto.Url = url;
-                tempPhoto.Rating = rating;
-                tempPhoto.Camera = tempCamera; //we grab info needed and shove it into the temporary camera and photo
-                if (!photosPerBrand.ContainsKey(cameraBrand))
+                if (!photosPerBrand.ContainsKey(photo.Camera.CameraBrand))
                 {
-                    photosPerBrand.Add(cameraBrand, photosInOneBrand);
+                    photosPerBrand.Add(photo.Camera.CameraBrand, photosInOneBrand);
                     photosInOneBrand.Clear(); //if camerabrand key doesnt exist, we create a new one, shove the list in and clear the list aftewards
                 }
                 else
                 {
-                    photosInOneBrand.Add(tempPhoto); //else, we continue adding photos onto our list
+                    photosInOneBrand.Add(photo); //else, we continue adding photos onto our list
                 }
             }
+            
         }
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Dapper;
+
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -42,12 +44,29 @@ namespace camtastic_application
         /// <summary>
         /// used to grab every element from a row
         /// </summary>
-        public (string, string, string, int) GrabData(int rowNum)
+        public List<Photo> GrabData()
         {
-            string sqlQuery = $"SELECT * FROM `photo` WHERE URL='https://photo-forum.net/i/'" + rowNum;
+            int picAmount = this.FindDataAmount();
+            string sqlQuery = $"SELECT * FROM `photo`";
+            List<Photo> allPhotos = new List<Photo>();
             MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
-            return (reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3)); //returns url, camerbrand, cameramodel and rating after executing MySqlDataReader
+            while (reader.Read())
+            {
+                Photo tempPhoto = new Photo();
+                Camera tempCamera = new Camera(); // creating temp objects to play around with
+                string url = reader.GetString(0);
+                string cameraBrand = reader.GetString(1);
+                string cameraModel = reader.GetString(2);
+                int rating = reader.GetInt32(3);
+                tempCamera.CameraBrand = cameraBrand;
+                tempCamera.CameraModel = cameraModel;
+                tempPhoto.Url = url;
+                tempPhoto.Rating = rating;
+                tempPhoto.Camera = tempCamera; //we grab info needed and shove it into the temporary camera and photo
+                allPhotos.Add(tempPhoto);
+            }
+            return allPhotos;
         }
         /// <summary>
         /// used to get amount of data currently present in database
