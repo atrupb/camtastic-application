@@ -23,7 +23,7 @@ using System.Diagnostics;
 
 namespace camtastic_application
 {
-    class MainWindowViewModel
+    class MainWindowViewModel 
     {
         DatabaseHandler database = new DatabaseHandler();
 
@@ -68,6 +68,8 @@ namespace camtastic_application
                     {
                         database.AddData(rating, cameraBrand, cameraModel, url); //else, we send it to the database (i noticed not many entries have the full metadata)
                     }
+
+                    
                 }
                 catch (OpenQA.Selenium.NoSuchElementException)   //catch construct just skips to next iteration, since we skip pictures without metadata (not sure if this does anything, however id rather keep it here as a secondary safety net)
                 {
@@ -88,7 +90,10 @@ namespace camtastic_application
             for (var i = 0; i < 6000; i++)
             {
                 ThreadPool.QueueUserWorkItem(o => Thread1(i * 500 + 1, i * 500 + 500)); //per how many pics should we have a thread? ive changed it to 5000, but i think its still too little. maybe we can increase thread amount?
+                
                 Thread.Sleep(5000);
+
+                
             }
         }
         /// <summary>

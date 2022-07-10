@@ -4,7 +4,7 @@ using System.Text;
 
 namespace camtastic_application
 {
-    class Camera
+    public class Camera
     {
         public string CameraModel { get; set; }
         public string CameraBrand { get; set; }
