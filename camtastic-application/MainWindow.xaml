@@ -1,136 +1,24 @@
 ﻿<Window x:Class="camtastic_application.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:camtastic_application"
-        mc:Ignorable="d"
-        Title="Simeon and Atila" Height="579" Width="1209">
-    <Window.OpacityMask>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black"/>
-            <GradientStop Color="White" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.OpacityMask>
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black"/>
-            <GradientStop Color="#FFC52E95" Offset="0.42"/>
-        </LinearGradientBrush>
-    </Window.Background>
-    <Grid Margin="17,-89,3,-1" RenderTransformOrigin="0.5,0.5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="66*"/>
-            <RowDefinition Height="401*"/>
-        </Grid.RowDefinitions>
-        <Grid.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform Angle="-0.088"/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Grid.RenderTransform>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="6*"/>
-            <ColumnDefinition Width="619*"/>
-            <ColumnDefinition Width="82*"/>
-            <ColumnDefinition Width="7.873"/>
-            <ColumnDefinition Width="231.626"/>
-        </Grid.ColumnDefinitions>
-        <Ellipse HorizontalAlignment="Left" Height="549" Margin="23,-331,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.5,0.5" Grid.Column="4" Fill="#FFD0700E" Grid.RowSpan="2">
-            <Ellipse.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="39.8"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Ellipse.RenderTransform>
-        </Ellipse>
-        <Ellipse HorizontalAlignment="Left" Height="549" Margin="160,-327,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.5,0.5" Grid.Column="4" Fill="#FF09BDD4" Grid.RowSpan="2">
-            <Ellipse.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="41.071"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Ellipse.RenderTransform>
-        </Ellipse>
-        <Ellipse HorizontalAlignment="Left" Height="549" Margin="27,-336,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.5,0.5" Fill="#FF471080" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="3">
-            <Ellipse.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="40.577"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Ellipse.RenderTransform>
-        </Ellipse>
-        <TextBlock HorizontalAlignment="Left" Margin="3,197,0,0" TextWrapping="Wrap" Text="Enjoy the work of experienced photographers" VerticalAlignment="Top" Height="130" Width="169" FontFamily="Segoe UI Semibold" FontSize="24" FontWeight="Normal" FontStyle="Italic" Grid.Row="1" Grid.Column="1" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="132,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Grid.Row="1"><Run Language="de-de" Text="Photo search app"/></TextBlock>
-        <Image Grid.ColumnSpan="2" Height="100" Grid.RowSpan="2" Width="100"/>
-        <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="268,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="5,335,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Inspire yourself and learn about the photo while you are watching the art work of people around the world" VerticalAlignment="Top" Height="75" Width="210" Foreground="White" FontFamily="Arial" RenderTransformOrigin="0.5,0.5">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="-0.009"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0.004"/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <Ellipse Grid.Column="2" HorizontalAlignment="Left" Height="549" Margin="52,408,0,0" Grid.Row="1" VerticalAlignment="Top" Width="88" Fill="#FF14B5C1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3">
-            <Ellipse.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="42.294"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Ellipse.RenderTransform>
-        </Ellipse>
-        <Ellipse Grid.Column="1" Margin="721,372,21,-438" Grid.Row="1" Fill="#FFC7740F" RenderTransformOrigin="0.5,0.5">
-            <Ellipse.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="46.889"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Ellipse.RenderTransform>
-        </Ellipse>
-        <Ellipse Grid.Column="1" HorizontalAlignment="Left" Height="549" Margin="609,381,0,0" Grid.Row="1" VerticalAlignment="Top" Width="88" Fill="#FF5012AD" RenderTransformOrigin="0.5,0.5">
-            <Ellipse.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="46.164"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Ellipse.RenderTransform>
-        </Ellipse>
-        <Image Grid.Column="1" HorizontalAlignment="Left" Source="/Image/Firefox-Browser-Logo-Transparent-PNG.png" Height="100" Margin="14,17,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <CheckBox Grid.Column="4" Content="CheckBox" HorizontalAlignment="Left" Margin="209,248,0,296" Grid.Row="1" Width="13">
-            <CheckBox.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </CheckBox.Background>
-        </CheckBox>
-        <TextBox x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="227,432,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Background="{x:Null}" Height="60"/>
-        <TextBox x:Name="Model" Grid.Column="1" HorizontalAlignment="Left" Margin="434,432,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Background="{x:Null}" Height="62"/>
-        <TextBox x:Name="Rating" Grid.Column="1" HorizontalAlignment="Left" Margin="621,433,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" Height="64"/>
-        <Button x:Name="getInfoButton" Content="Click here to get information" Grid.Column="1" HorizontalAlignment="Left" Margin="691,209,0,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="131" Width="363" Click="GetInfoButton_Click" Background="{x:Null}"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="692,134,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="4" Height="59" Width="361" FontSize="20" FontFamily="Segoe UI Black" Foreground="White"><Run Text="The additional information of the photo:"/><LineBreak/><Run/></TextBlock>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="225,409,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Brand of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="425,408,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Model of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="618,408,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Rating of the photo" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="341,139,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Enter the URL of the Photo here:" VerticalAlignment="Top" Height="83" Width="322" Foreground="#FFFBFBFB" FontFamily="Arial Black" FontSize="16"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="326,205,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="138" Background="{x:Null}"/>
-
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf.CartesianChart.Basic_Bars"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance local:BasicColumn}">
+    <Grid>
+        <lvc:PieChart LegendLocation="Bottom" DataClick="Chart_OnDataClick" Hoverable="False" DataTooltip="{x:Null}">
+            <lvc:PieChart.Series>
+                <lvc:PieSeries Title="Maria" Values="3" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Charles" Values="4" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Frida" Values="6" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+                <lvc:PieSeries Title="Frederic" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}"/>
+            </lvc:PieChart.Series>
+        </lvc:PieChart>
     </Grid>
-</Window>
+    </Window>

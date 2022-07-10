@@ -44,7 +44,8 @@ namespace camtastic_application
                 methodExtender.GetInfo();
             }
         }
-      
+
+        
     }
     
 }
