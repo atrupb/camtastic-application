@@ -27,7 +27,7 @@ namespace camtastic_application
     /// </summary>
     public partial class MainWindow : Window
     {
-        MainWindowViewModel methodExtender = new MainWindowViewModel();
+        readonly MainWindowViewModel methodExtender = new MainWindowViewModel();
         
         public MainWindow()
         {
@@ -44,8 +44,7 @@ namespace camtastic_application
                 methodExtender.GetInfo();
             }
         }
-
-        
+      
     }
     
 }
