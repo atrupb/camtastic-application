@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:camtastic_application"
-        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="Simeon and Atila" Height="579" Width="1209">
     <Window.OpacityMask>
@@ -19,7 +19,7 @@
             <GradientStop Color="#FFC52E95" Offset="0.42"/>
         </LinearGradientBrush>
     </Window.Background>
-    <Grid Margin="17,-89,3,-1" RenderTransformOrigin="0.5,0.5">
+    <Grid Margin="17,0,3,-1" RenderTransformOrigin="0.5,0.5" Height="653" VerticalAlignment="Bottom">
         <Grid.RowDefinitions>
             <RowDefinition Height="66*"/>
             <RowDefinition Height="401*"/>
@@ -71,7 +71,6 @@
         </Ellipse>
         <TextBlock HorizontalAlignment="Left" Margin="3,197,0,0" TextWrapping="Wrap" Text="Enjoy the work of experienced photographers" VerticalAlignment="Top" Height="130" Width="169" FontFamily="Segoe UI Semibold" FontSize="24" FontWeight="Normal" FontStyle="Italic" Grid.Row="1" Grid.Column="1" Foreground="White"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="132,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Grid.Row="1"><Run Language="de-de" Text="Photo search app"/></TextBlock>
-        <Image Grid.ColumnSpan="2" Height="100" Grid.RowSpan="2" Width="100"/>
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="268,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="5,335,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Inspire yourself and learn about the photo while you are watching the art work of people around the world" VerticalAlignment="Top" Height="75" Width="210" Foreground="White" FontFamily="Arial" RenderTransformOrigin="0.5,0.5">
             <TextBlock.RenderTransform>
@@ -122,24 +121,42 @@
                 </LinearGradientBrush>
             </CheckBox.Background>
         </CheckBox>
-        <TextBox x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="202,491,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Background="{x:Null}" Height="60" TextChanged="Brand_TextChanged"/>
-        <TextBox x:Name="Model" Grid.Column="1" HorizontalAlignment="Left" Margin="407,489,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Background="{x:Null}" Height="62"/>
-        <TextBox x:Name="Rating" Grid.Column="1" HorizontalAlignment="Left" Margin="592,487,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" Height="64"/>
+        <TextBox x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="202,476,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Background="{x:Null}" Height="60" FontSize="20"/>
+        <TextBox x:Name="Model" Grid.Column="1" HorizontalAlignment="Left" Margin="398,474,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Background="{x:Null}" Height="62" TextChanged="Model_TextChanged" FontSize="20"/>
+        <TextBox x:Name="Rating" Grid.Column="1" HorizontalAlignment="Left" Margin="589,475,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" Height="64" FontSize="20"/>
         <Button x:Name="getInfoButton" Content="Click here to get information" Grid.Column="1" HorizontalAlignment="Left" Margin="217,311,0,0" Grid.Row="1" VerticalAlignment="Top" Height="131" Width="363" Click="GetInfoButton_Click" Background="{x:Null}"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="224,236,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="361" FontSize="20" FontFamily="Segoe UI Black" Foreground="White"><Run Text="The additional information of the photo:"/><LineBreak/><Run/></TextBlock>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="199,459,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Brand of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="394,458,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Model of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="585,459,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Rating of the photo" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="236,133,0,0" Grid.Row="1" TextWrapping="Wrap" Text=" the URL of the Photo here:" VerticalAlignment="Top" Height="83" Width="322" Foreground="#FFFBFBFB" FontFamily="Arial Black" FontSize="16"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="199,452,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Brand of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="393,451,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Model of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="585,447,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Rating of the photo" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="240,80,0,0" Grid.Row="1" TextWrapping="Wrap" Text=" the URL of the Photo here:" VerticalAlignment="Top" Height="83" Width="322" Foreground="#FFFBFBFB" FontFamily="Arial Black" FontSize="16"/>
 
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Left" Grid.ColumnSpan="4" Margin="593,119,19,126" Grid.Column="1" Grid.Row="1">
-            <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Salesman" Labels="{Binding Labels}"></lvc:Axis>
-            </lvc:CartesianChart.AxisX>
-            <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Sold Apps" LabelFormatter="{Binding Formatter}"></lvc:Axis>
-            </lvc:CartesianChart.AxisY>
-        </lvc:CartesianChart>
+        <DockPanel>
+            <Border DockPanel.Dock="Left">
+                <Grid>
+                    <Button Content="Anlık Kullanıcı Sayısı" VerticalAlignment="Center"
+                            Click="ButtonChangePieChart_Click" RenderTransformOrigin="0.817,0.857" Margin="75,0,-417,0" Height="47">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="-0.016"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="-0.005"/>
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                    </Button>
+                </Grid>
+            </Border>
+            <Border DockPanel.Dock="Right" Width="5">
+
+                <Wpf:PieChart Name="Chart" Series="{Binding SeriesCollection}" LegendLocation="Left"
+                                  InnerRadius="0" Margin="654,208,-1163,-372">
+                    <Wpf:PieChart.ChartLegend>
+                        <Wpf:DefaultLegend BulletSize="20" RenderTransformOrigin="0.347,0.5" Width="69" Loaded="DefaultLegend_Loaded"></Wpf:DefaultLegend>
+                    </Wpf:PieChart.ChartLegend>
+                </Wpf:PieChart>
+            </Border>
+        </DockPanel>
 
 
     </Grid>
