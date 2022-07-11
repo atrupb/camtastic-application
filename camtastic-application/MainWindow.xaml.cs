@@ -27,17 +27,15 @@ namespace camtastic_application
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Button getInfoButtonAccess;
         public static bool isSearching = false;
         readonly MainWindowViewModel methodExtender = new MainWindowViewModel();
         DatabaseHandler database = new DatabaseHandler();
-        static Random random;
         public MainWindow()
         {
             InitializeComponent();
             database.Connect(); // this connects us to our database
-            random = new Random();
-            Brand.Text = "Sony";
-            Model.Text = "Sony";
+            getInfoButtonAccess = getInfoButton;
         }
         /// <summary>
         /// event handler for getInfo button click
@@ -46,13 +44,12 @@ namespace camtastic_application
         {
             if (isSearching == false)
             {
-                getInfoButton.Content = "Getting info, please wait..."; //if no process is being worked on, we change the text
-                isSearching = true;
-                methodExtender.GetInfo();
+                SpeedSelect window = new SpeedSelect();
+                window.Show();
             }
             else
             {
-                getInfoButton.Content = "Cancelling...";
+                getInfoButton.Content = "Gathering has been canceled. Click to try again.";
                 isSearching = false;
                 methodExtender.CancelInfoCollection();
             }

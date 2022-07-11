@@ -90,10 +90,30 @@ namespace camtastic_application
         /// </summary>
         public async void GetInfo()
         {
-            for (var i = 0; i < 6000; i++)
+            MainWindow.getInfoButtonAccess.Content = "Currently gathering. You may press on this button to cancel.";
+            if(SpeedSelect.slow == true)
             {
-                ThreadPool.QueueUserWorkItem(o => Thread1(i * 500 + 1, i * 500 + 500));
-                await Task.Delay(5000);
+                for (var i = 0; i < 6000; i++)
+                {
+                    ThreadPool.QueueUserWorkItem(o => Thread1(i * 500 + 1, i * 500 + 500));
+                    await Task.Delay(20000);
+                }
+            }
+            else if(SpeedSelect.average == true)
+            {
+                for (var i = 0; i < 6000; i++)
+                {
+                    ThreadPool.QueueUserWorkItem(o => Thread1(i * 500 + 1, i * 500 + 500));
+                    await Task.Delay(10000);
+                }
+            }
+            else if(SpeedSelect.fast == true)
+            {
+                for (var i = 0; i < 6000; i++)
+                {
+                    ThreadPool.QueueUserWorkItem(o => Thread1(i * 500 + 1, i * 500 + 500));
+                    await Task.Delay(5000);
+                }
             }
         }
         /// <summary>

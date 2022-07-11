@@ -116,7 +116,7 @@
         <TextBox x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="202,476,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Background="{x:Null}" Height="60" FontSize="20"/>
         <TextBox x:Name="Model" Grid.Column="1" HorizontalAlignment="Left" Margin="398,474,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Background="{x:Null}" Height="62" FontSize="20"/>
         <TextBox x:Name="Rating" Grid.Column="1" HorizontalAlignment="Left" Margin="589,475,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" Height="64" FontSize="20"/>
-        <Button x:Name="getInfoButton" Content="Click here to get information" Grid.Column="1" HorizontalAlignment="Left" Margin="217,311,0,0" Grid.Row="1" VerticalAlignment="Top" Height="131" Width="363" Click="GetInfoButton_Click" Background="{x:Null}"/>
+        <Button x:Name="getInfoButton" Content="Get information" Grid.Column="1" HorizontalAlignment="Left" Margin="781,125,0,0" Grid.Row="1" VerticalAlignment="Top" Height="131" Width="363" Click="GetInfoButton_Click" Background="{x:Null}" Grid.ColumnSpan="4"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="224,236,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="361" FontSize="20" FontFamily="Segoe UI Black" Foreground="White"><Run Text="The additional information of the photo:"/><LineBreak/><Run/></TextBlock>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="199,452,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Brand of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="393,451,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Model of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
@@ -143,7 +143,7 @@
         </DockPanel>
         <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="-685,187,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <ContentControl Content="ContentControl" Grid.Column="4" HorizontalAlignment="Left" Margin="48,738,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button x:Name="openChartWindow" Content="Check last acquired information" Grid.Column="1" HorizontalAlignment="Left" Margin="769,264,0,0" Grid.Row="1" VerticalAlignment="Top" Height="131" Width="363" Click="ChartButton_Click" Background="{x:Null}" Grid.ColumnSpan="4"/>
+        <Button x:Name="openChartWindow" Content="Check gathered information" Grid.Column="1" HorizontalAlignment="Left" Margin="781,300,0,0" Grid.Row="1" VerticalAlignment="Top" Height="131" Width="363" Click="ChartButton_Click" Background="{x:Null}" Grid.ColumnSpan="4"/>
 
 
     </Grid>
