@@ -9,10 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <None Remove="Firefox-Browser-Logo-Transparent-PNG.png" />
+    <None Remove="Image1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetProjects.WpfToolkit.DataVisualization" Version="6.1.94" />
     <PackageReference Include="MySql.Data" Version="8.0.29" />
     <PackageReference Include="Selenium.WebDriver" Version="4.3.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="103.0.5060.5300" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Firefox-Browser-Logo-Transparent-PNG.png" />
+    <Resource Include="Image1.jpg" />
   </ItemGroup>
 
   <ItemGroup>

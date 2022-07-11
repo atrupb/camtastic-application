@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:camtastic_application"
-        xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+       ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="Simeon and Atila" Height="579" Width="1209">
+        Title="Camtastic" Height="579" Width="1209">
     <Window.OpacityMask>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
@@ -70,7 +70,7 @@
             </Ellipse.RenderTransform>
         </Ellipse>
         <TextBlock HorizontalAlignment="Left" Margin="3,197,0,0" TextWrapping="Wrap" Text="Enjoy the work of experienced photographers" VerticalAlignment="Top" Height="130" Width="169" FontFamily="Segoe UI Semibold" FontSize="24" FontWeight="Normal" FontStyle="Italic" Grid.Row="1" Grid.Column="1" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="132,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Grid.Row="1"><Run Language="de-de" Text="Photo search app"/></TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="132,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Grid.Row="1" Text="Camtastic"/>
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="268,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="5,335,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Inspire yourself and learn about the photo while you are watching the art work of people around the world" VerticalAlignment="Top" Height="75" Width="210" Foreground="White" FontFamily="Arial" RenderTransformOrigin="0.5,0.5">
             <TextBlock.RenderTransform>
@@ -112,30 +112,22 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Image Grid.Column="1" HorizontalAlignment="Left" Source="/Image/Firefox-Browser-Logo-Transparent-PNG.png" Height="100" Margin="14,17,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <CheckBox Grid.Column="4" Content="CheckBox" HorizontalAlignment="Left" Margin="209,248,0,296" Grid.Row="1" Width="13">
-            <CheckBox.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </CheckBox.Background>
-        </CheckBox>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Source="/Firefox-Browser-Logo-Transparent-PNG.png" Height="100" Margin="14,47,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
         <TextBox x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="202,476,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="154" Background="{x:Null}" Height="60" FontSize="20"/>
-        <TextBox x:Name="Model" Grid.Column="1" HorizontalAlignment="Left" Margin="398,474,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Background="{x:Null}" Height="62" TextChanged="Model_TextChanged" FontSize="20"/>
+        <TextBox x:Name="Model" Grid.Column="1" HorizontalAlignment="Left" Margin="398,474,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146" Background="{x:Null}" Height="62" FontSize="20"/>
         <TextBox x:Name="Rating" Grid.Column="1" HorizontalAlignment="Left" Margin="589,475,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Background="{x:Null}" Height="64" FontSize="20"/>
         <Button x:Name="getInfoButton" Content="Click here to get information" Grid.Column="1" HorizontalAlignment="Left" Margin="217,311,0,0" Grid.Row="1" VerticalAlignment="Top" Height="131" Width="363" Click="GetInfoButton_Click" Background="{x:Null}"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="224,236,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="361" FontSize="20" FontFamily="Segoe UI Black" Foreground="White"><Run Text="The additional information of the photo:"/><LineBreak/><Run/></TextBlock>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="199,452,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Brand of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="393,451,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Model of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="585,447,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Rating of the photo" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="240,80,0,0" Grid.Row="1" TextWrapping="Wrap" Text=" the URL of the Photo here:" VerticalAlignment="Top" Height="83" Width="322" Foreground="#FFFBFBFB" FontFamily="Arial Black" FontSize="16"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="240,104,0,0" Grid.Row="1" TextWrapping="Wrap" Text=" the URL of the Photo here:" VerticalAlignment="Top" Height="83" Width="322" Foreground="#FFFBFBFB" FontFamily="Arial Black" FontSize="16"/>
 
         <DockPanel>
             <Border DockPanel.Dock="Left">
                 <Grid>
                     <Button Content="Anlık Kullanıcı Sayısı" VerticalAlignment="Center"
-                            Click="ButtonChangePieChart_Click" RenderTransformOrigin="0.817,0.857" Margin="75,0,-417,0" Height="47">
+                             RenderTransformOrigin="0.817,0.857" Margin="75,0,-417,0" Height="47">
                         <Button.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -147,16 +139,11 @@
                     </Button>
                 </Grid>
             </Border>
-            <Border DockPanel.Dock="Right" Width="5">
-
-                <Wpf:PieChart Name="Chart" Series="{Binding SeriesCollection}" LegendLocation="Left"
-                                  InnerRadius="0" Margin="654,208,-1163,-372">
-                    <Wpf:PieChart.ChartLegend>
-                        <Wpf:DefaultLegend BulletSize="20" RenderTransformOrigin="0.347,0.5" Width="69" Loaded="DefaultLegend_Loaded"></Wpf:DefaultLegend>
-                    </Wpf:PieChart.ChartLegend>
-                </Wpf:PieChart>
-            </Border>
+            <Border DockPanel.Dock="Right" Width="5"/>
         </DockPanel>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="-685,187,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <ContentControl Content="ContentControl" Grid.Column="4" HorizontalAlignment="Left" Margin="48,738,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button x:Name="openChartWindow" Content="Check last acquired information" Grid.Column="1" HorizontalAlignment="Left" Margin="769,264,0,0" Grid.Row="1" VerticalAlignment="Top" Height="131" Width="363" Click="ChartButton_Click" Background="{x:Null}" Grid.ColumnSpan="4"/>
 
 
     </Grid>

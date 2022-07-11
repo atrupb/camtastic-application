@@ -19,10 +19,6 @@ using System.Windows.Shapes;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
-using LiveCharts;
-using LiveCharts.Wpf;
-using LiveCharts.Defaults;
-
 
 namespace camtastic_application
 {
@@ -31,81 +27,43 @@ namespace camtastic_application
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static bool isSearching = false;
         readonly MainWindowViewModel methodExtender = new MainWindowViewModel();
-
+        DatabaseHandler database = new DatabaseHandler();
         static Random random;
         public MainWindow()
         {
-
             InitializeComponent();
+            database.Connect(); // this connects us to our database
             random = new Random();
-
             Brand.Text = "Sony";
             Model.Text = "Sony";
         }
-
-        public SeriesCollection SeriesCollection { get; set; }
-
-        private void ButtonChangePieChart_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                DataContext = new object();
-
-                SeriesCollection = new SeriesCollection
-                {
-                    new PieSeries
-                    {
-                        Title = "1. Instagram",
-                        Values = new ChartValues<ObservableValue> { new ObservableValue(random.Next(50000, 650000))},
-                        DataLabels = true
-                    },new PieSeries
-                    {
-                        Title = "2. Twitter",
-                        Values = new ChartValues<ObservableValue> { new ObservableValue(random.Next(45000, 400000))},
-                        DataLabels = true
-                    },new PieSeries
-                    {
-                        Title = "3. YouTube",
-                        Values = new ChartValues<ObservableValue> { new ObservableValue(random.Next(30000, 800000))},
-                        DataLabels = true
-                    }
-                };
-                DataContext = this;
-            }
-            catch (Exception exp)
-            {
-                MessageBox.Show("Pasta Grafiği Oluşturulamadı \n" + exp.Message);
-            }
-
-            /// <summary>
-            /// event handler for getInfo button click
-            /// </summary>
-
-        }
+        /// <summary>
+        /// event handler for getInfo button click
+        /// </summary>
         private void GetInfoButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ThreadPool.PendingWorkItemCount == 0)
+            if (isSearching == false)
             {
-                getInfoButton.Content = "Getting info, please wait."; //if no process is being worked on, we change the text
+                getInfoButton.Content = "Getting info, please wait..."; //if no process is being worked on, we change the text
+                isSearching = true;
                 methodExtender.GetInfo();
-
-
-
+            }
+            else
+            {
+                getInfoButton.Content = "Cancelling...";
+                isSearching = false;
+                methodExtender.CancelInfoCollection();
             }
         }
-
-        private void DefaultLegend_Loaded(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// event handler for chartButton button click
+        /// </summary>
+        private void ChartButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ChartInfo window = new ChartInfo();
+            window.Show();
         }
     }
 }
-    
-
-
-        
-        
-    
-    
-

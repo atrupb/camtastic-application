@@ -23,18 +23,18 @@ using System.Diagnostics;
 
 namespace camtastic_application
 {
-    class MainWindowViewModel 
+    class MainWindowViewModel
     {
         DatabaseHandler database = new DatabaseHandler();
 
-        Dictionary<string, List<Photo>> photosPerBrand = new Dictionary<string, List<Photo>>();
+        public static List<ChromeDriver> chromeDrivers = new List<ChromeDriver>();
 
+      
         /// <summary>
         /// this is the code behind all the threads that collect the information
         /// </summary>
         public void Thread1(int start, int end)
         {
-            database.Connect(); // this connects us to our database
             ChromeDriverService service = ChromeDriverService.CreateDefaultService();
             service.HideCommandPromptWindow = true;
             ChromeOptions options = new ChromeOptions();
@@ -48,9 +48,13 @@ namespace camtastic_application
             });
             options.PageLoadStrategy = PageLoadStrategy.Eager;
             var web = new ChromeDriver(service, options);  //selenium doing its magic
-
+            chromeDrivers.Add(web); //adding chromeDriver to the static list incase user decides to cancel operation
             for (var i = start; i < end; i++)  //beginning loop right here, this will cycle between the websites and get the information
             {
+                if(MainWindow.isSearching == false) //if button has been pressed against searching, we break out of this loop pt.1
+                {
+                    break;
+                }
                 string url = "https://photo-forum.net/i/" + i;
                 Debug.WriteLine(url);
                 web.Navigate().GoToUrl(url);
@@ -68,56 +72,67 @@ namespace camtastic_application
                     {
                         database.AddData(rating, cameraBrand, cameraModel, url); //else, we send it to the database (i noticed not many entries have the full metadata)
                     }
-
-                    
                 }
                 catch (OpenQA.Selenium.NoSuchElementException)   //catch construct just skips to next iteration, since we skip pictures without metadata (not sure if this does anything, however id rather keep it here as a secondary safety net)
                 {
                     continue;
                 }
-                /* Brand.Text = cameraBrand.ToString();
-                 * Model.Text = cameraModel.ToString();
-                 * Rating.Text = rating.ToString():
-                 */
+                catch (OpenQA.Selenium.WebDriverException) //web driver exception might get thrown if cancellation is mid loop, so we break through this catch as well pt.2
+                {
+                    break;
+                }
             }
             web.Close();
+            web.Quit(); //after loop, we quit out of the current chromedriver and close the chrome tab
         }
         /// <summary>
         /// used to start collecting information process
         /// </summary>
-        public void GetInfo()
+        public async void GetInfo()
         {
             for (var i = 0; i < 6000; i++)
             {
-                ThreadPool.QueueUserWorkItem(o => Thread1(i * 500 + 1, i * 500 + 500)); //per how many pics should we have a thread? ive changed it to 5000, but i think its still too little. maybe we can increase thread amount?
-                
-                Thread.Sleep(5000);
-
-                
+                ThreadPool.QueueUserWorkItem(o => Thread1(i * 500 + 1, i * 500 + 500));
+                await Task.Delay(5000);
             }
         }
         /// <summary>
-        /// this method is used to grab the information and sort it into lists for convenient graphing.
+        /// used to grab the data and sort it into a dictionary for convenient graphing.
         /// </summary>
-        public void SortInfo()
+        public Dictionary<string, List<Photo>> SortData()
         {
             List<Photo> photosInOneBrand = new List<Photo>();
-
+            Dictionary<string, List<Photo>> photosPerBrand = new Dictionary<string, List<Photo>>();
             List<Photo> allPhotos = database.GrabData();
-
             foreach(Photo photo in allPhotos)
             {
+                photosInOneBrand.Add(photo);
                 if (!photosPerBrand.ContainsKey(photo.Camera.CameraBrand))
                 {
-                    photosPerBrand.Add(photo.Camera.CameraBrand, photosInOneBrand);
-                    photosInOneBrand.Clear(); //if camerabrand key doesnt exist, we create a new one, shove the list in and clear the list aftewards
-                }
-                else
-                {
-                    photosInOneBrand.Add(photo); //else, we continue adding photos onto our list
+                    photosPerBrand.Add(photo.Camera.CameraBrand, new List<Photo>(photosInOneBrand));
+                    photosInOneBrand.Clear();
                 }
             }
-            
+            return photosPerBrand;
+        }
+        /// <summary>
+        /// used to cancel current search for info (this was fully copied off of google, i dont really know how it works.)
+        /// </summary>
+        public void CancelInfoCollection()
+        {
+            CancellationTokenSource cts = new CancellationTokenSource();
+            for (int i = 0; i < 6000; i++)
+            {
+                ThreadPool.QueueUserWorkItem(s =>
+                {
+                    CancellationToken token = (CancellationToken)s;
+                    if (token.IsCancellationRequested)
+                        return;
+                    Console.WriteLine("Output2");
+                    token.WaitHandle.WaitOne(1000);
+                }, cts.Token);
+            }
+            cts.Cancel();
         }
     }
 }
