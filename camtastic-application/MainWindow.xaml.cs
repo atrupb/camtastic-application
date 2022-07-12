@@ -28,6 +28,7 @@ namespace camtastic_application
     public partial class MainWindow : Window
     {
         public static Button getInfoButtonAccess;
+        public static Label percentage;
         public static bool isSearching = false;
         readonly MainWindowViewModel methodExtender = new MainWindowViewModel();
         DatabaseHandler database = new DatabaseHandler();
@@ -36,6 +37,7 @@ namespace camtastic_application
             InitializeComponent();
             database.Connect(); // this connects us to our database
             getInfoButtonAccess = getInfoButton;
+            percentage = percentDone;
         }
         /// <summary>
         /// event handler for getInfo button click

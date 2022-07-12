@@ -35,11 +35,19 @@ namespace camtastic_application
             MainWindowViewModel methodExtender = new MainWindowViewModel(); //we create a method extender since we need it
             Dictionary<string, double> ratingsPerBrand = new Dictionary<string, double>(); //this dictionary is used for final additions to the chart
             Dictionary<string, List<Photo>> mainDictionary = methodExtender.SortData(); //new var for photosPerBrand dictionary for easier hnadling
+            mainDictionary.OrderBy(x => x.Value.Select(x=>x.Rating).Average()); //linq to grab top 10
             try
             {
-                for (var i = 0; i < mainDictionary.Count; i++)
+                for (var i = 0; i < 10; i++)
                 {
-                    ratingsPerBrand.Add(mainDictionary.Keys.ToList()[i], mainDictionary.Values.ToList()[i].Select(x => x.Rating).Average()); 
+                    try
+                    {
+                        ratingsPerBrand.Add(mainDictionary.Keys.ToList()[i].ToUpper(), mainDictionary.Values.ToList()[i].Select(x => x.Rating).Average());
+                    }
+                    catch(ArgumentException)
+                    {
+                        continue;
+                    }
                     //linq used, we add each brand and then the average rating of the list of pictures as a value
                 }
             }
@@ -47,7 +55,7 @@ namespace camtastic_application
             {
                 return; //if there is no info present, we open the chart empty
             }
-            ((BarSeries)mcChart.Series[0]).ItemsSource = ratingsPerBrand; //we add the stuff to the chart, and thats our app completed.
+            ((BarSeries)mcChart.Series[0]).ItemsSource = ratingsPerBrand.OrderBy(x => x.Value); //we add the stuff to the chart ordered by value
 
             //these are customizations, im not supposed to do these in c# but i barely know xaml.
             LinearGradientBrush myLinearGradientBrush =

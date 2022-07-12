@@ -19,7 +19,7 @@ using System.Windows.Shapes;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
-
+using System.Net.Http;
 
 namespace camtastic_application
 {
@@ -29,12 +29,14 @@ namespace camtastic_application
 
         public static List<ChromeDriver> chromeDrivers = new List<ChromeDriver>();
 
-      
+        public int sitesChecked = 0;
         /// <summary>
         /// this is the code behind all the threads that collect the information
         /// </summary>
-        public void Thread1(int start, int end)
+        public async void Thread1(int start, int end)
         {
+            sitesChecked++;
+            database.Connect();
             ChromeDriverService service = ChromeDriverService.CreateDefaultService();
             service.HideCommandPromptWindow = true;
             ChromeOptions options = new ChromeOptions();
@@ -57,14 +59,20 @@ namespace camtastic_application
                 }
                 string url = "https://photo-forum.net/i/" + i;
                 Debug.WriteLine(url);
-                web.Navigate().GoToUrl(url);
+                try
+                {
+                    web.Navigate().GoToUrl(url);
+                }
+                catch (WebDriverException)
+                {
+                    continue;
+                }
                 try   //a try construct, if it doesnt find a rating or cameramodel or camerabrand, it should skip to catch
                 {
                     int rating = int.Parse(web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[2]/div/div/div[2]/div/ul[1]/li[1]/ul/li[1]/span[2]/span")).Text);
                     string cameraBrand = web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/span")).GetAttribute("textContent");
                     string cameraModel = web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[2]/div[2]/span")).GetAttribute("textContent"); //we grab values using xPath (a thing you copy off google idk much either lol)
-                    Regex timeFormatCheck = new Regex(@"(?:0[1-9]|[12][0-9]|3[01])[-/.](?:0[1-9]|1[012])[-/.](?:19\d{2}|20[01][0-9]|2020)\b"); //ive used a regex to check dates, its a safety net so no wrong info gets sent into the database
-                    if (timeFormatCheck.IsMatch(cameraModel) || timeFormatCheck.IsMatch(cameraBrand) || cameraModel.Length == 0 || cameraBrand.Length == 0)
+                    if (cameraBrand.Length == 0 || cameraModel.Length == 0 || char.IsDigit(cameraBrand[0])) //if brand begins with number (brands do not begin with a number), we skip
                     {
                         continue; // if regex matches (if its a date) or if one of them is empty, skip this one
                     }
@@ -90,30 +98,50 @@ namespace camtastic_application
         /// </summary>
         public async void GetInfo()
         {
-            MainWindow.getInfoButtonAccess.Content = "Currently gathering. You may press on this button to cancel.";
+            MainWindow.getInfoButtonAccess.Content = "Preparing gathering process...";
             if(SpeedSelect.slow == true)
             {
-                for (var i = 0; i < 6000; i++)
+                for (var i = 0; i < 4; i++)
                 {
-                    ThreadPool.QueueUserWorkItem(o => Thread1(i * 500 + 1, i * 500 + 500));
-                    await Task.Delay(20000);
+                    ThreadPool.QueueUserWorkItem(o => Thread1(1200000 + 450000 * i, (1200000 + 450000 * i) + 450000));
+                    await Task.Delay(1000);
                 }
+                UpdatePercentage();
             }
             else if(SpeedSelect.average == true)
             {
-                for (var i = 0; i < 6000; i++)
+                for (var i = 0; i < 7; i++)
                 {
-                    ThreadPool.QueueUserWorkItem(o => Thread1(i * 500 + 1, i * 500 + 500));
-                    await Task.Delay(10000);
+                    ThreadPool.QueueUserWorkItem(o => Thread1(1200000 + 257142 * i, (1200000 + 257142 * i) + 257142));
+                    await Task.Delay(1000);
                 }
+                UpdatePercentage();
             }
             else if(SpeedSelect.fast == true)
             {
-                for (var i = 0; i < 6000; i++)
+                for (var i = 0; i < 12; i++)
                 {
-                    ThreadPool.QueueUserWorkItem(o => Thread1(i * 500 + 1, i * 500 + 500));
-                    await Task.Delay(5000);
+                    ThreadPool.QueueUserWorkItem(o => Thread1(1200000 + 150000 * i, (1200000 + 150000 * i) + 150000));
+                    await Task.Delay(1000);
                 }
+                UpdatePercentage();
+            }
+        }
+        /// <summary>
+        /// used only to conveninetly update percentage done value
+        /// </summary>
+        private async void UpdatePercentage()
+        {
+            while(MainWindow.isSearching == true)
+            {
+                if(sitesChecked > 1800000)
+                {
+                    MainWindow.getInfoButtonAccess.Content = "Collecting done!";
+                    MainWindow.percentage.Content = "";
+                    MainWindow.isSearching = false;
+                }
+                MainWindow.percentage.Content = (sitesChecked * 100 / 1800000).ToString() + "% checked.";
+                await Task.Delay(1000);
             }
         }
         /// <summary>

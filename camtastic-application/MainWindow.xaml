@@ -144,6 +144,7 @@
         <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="-685,187,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <ContentControl Content="ContentControl" Grid.Column="4" HorizontalAlignment="Left" Margin="48,738,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <Button x:Name="openChartWindow" Content="Check gathered information" Grid.Column="1" HorizontalAlignment="Left" Margin="781,300,0,0" Grid.Row="1" VerticalAlignment="Top" Height="131" Width="363" Click="ChartButton_Click" Background="{x:Null}" Grid.ColumnSpan="4"/>
+        <Label x:Name="percentDone" Content="" Grid.Column="3" HorizontalAlignment="Left" Margin="1,265,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" Grid.ColumnSpan="2"/>
 
 
     </Grid>

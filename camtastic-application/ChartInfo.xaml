@@ -7,7 +7,7 @@
         xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=DotNetProjects.DataVisualization.Toolkit"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="Chart Information" Height="718" Width="1250">
+        Title="Chart Information" Height="617" Width="1250">
     <Window.Resources>
         <Style x:Key="RedColumnDataPointStyle"
        TargetType="{x:Type DVC:BarDataPoint}">
@@ -21,13 +21,14 @@
             </Setter>
         </Style>
     </Window.Resources>
-        <Grid>
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="452*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="894*"/>
+            <ColumnDefinition Width="353*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <DVC:Chart Name="mcChart"
-           Background="LightSteelBlue" Grid.ColumnSpan="2">
+           Background="LightSteelBlue" Grid.ColumnSpan="3">
             <DVC:Chart.Series>
                 <DVC:BarSeries Title="Ratings"   
                 DataPointStyle="{StaticResource RedColumnDataPointStyle}"

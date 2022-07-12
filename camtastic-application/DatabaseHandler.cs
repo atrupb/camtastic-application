@@ -21,6 +21,15 @@ namespace camtastic_application
         {
             string connStr = "server=localhost;user=root;database=project;port=3306;password=12345"; //IMPORTANT!!!! YOU NEED TO CHANGE SOME OF THE INFO SO IT WORKS ON YOUR OWN DATABASE!
             conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+            }
+            catch
+            {
+                MySqlConnection.ClearAllPools();
+                conn.Open();
+            }
         }
         /// <summary>
         /// used to add a new row of data
@@ -28,11 +37,9 @@ namespace camtastic_application
         public void AddData(int rating, string cameraBrand, string cameraModel, string url)
         {
             Connect();
-            conn.Open();
             string sqlQuery = $"INSERT INTO `photo` VALUES ('{url}', '{cameraBrand}', '{cameraModel}', '{rating}')";
             MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            cmd.ExecuteNonQueryAsync();
         }
         /// <summary>
         /// used to grab every element from a row
@@ -40,7 +47,6 @@ namespace camtastic_application
         public List<Photo> GrabData()
         {
             Connect();
-            conn.Open();
             string sqlQuery = $"SELECT * FROM `photo`";
             List<Photo> allPhotos = new List<Photo>();
             MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
