@@ -35,7 +35,6 @@ namespace camtastic_application
         /// </summary>
         public async void Thread1(int start, int end)
         {
-            sitesChecked++;
             database.Connect();
             ChromeDriverService service = ChromeDriverService.CreateDefaultService();
             service.HideCommandPromptWindow = true;
@@ -53,12 +52,12 @@ namespace camtastic_application
             chromeDrivers.Add(web); //adding chromeDriver to the static list incase user decides to cancel operation
             for (var i = start; i < end; i++)  //beginning loop right here, this will cycle between the websites and get the information
             {
-                if(MainWindow.isSearching == false) //if button has been pressed against searching, we break out of this loop pt.1
+                sitesChecked++;
+                if (MainWindow.isSearching == false) //if button has been pressed against searching, we break out of this loop pt.1
                 {
                     break;
                 }
                 string url = "https://photo-forum.net/i/" + i;
-                Debug.WriteLine(url);
                 try
                 {
                     web.Navigate().GoToUrl(url);
@@ -125,6 +124,7 @@ namespace camtastic_application
                     await Task.Delay(1000);
                 }
                 UpdatePercentage();
+
             }
         }
         /// <summary>
@@ -132,7 +132,8 @@ namespace camtastic_application
         /// </summary>
         private async void UpdatePercentage()
         {
-            while(MainWindow.isSearching == true)
+            MainWindow.getInfoButtonAccess.Content = "Collecting has begun. Please wait.";
+            while (MainWindow.isSearching == true)
             {
                 if(sitesChecked > 1800000)
                 {
@@ -141,6 +142,7 @@ namespace camtastic_application
                     MainWindow.isSearching = false;
                 }
                 MainWindow.percentage.Content = (sitesChecked * 100 / 1800000).ToString() + "% checked.";
+                Debug.WriteLine(sitesChecked);
                 await Task.Delay(1000);
             }
         }
