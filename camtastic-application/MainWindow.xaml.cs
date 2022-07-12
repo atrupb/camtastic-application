@@ -33,12 +33,12 @@ namespace camtastic_application
     {
         readonly MainWindowViewModel methodExtender = new MainWindowViewModel();
 
-        static Random random;
+        
         public MainWindow()
         {
 
             InitializeComponent();
-            random = new Random();
+            
 
             Brand.Text = "Sony";
             Model.Text = "Sony";
@@ -57,17 +57,17 @@ namespace camtastic_application
                     new PieSeries
                     {
                         Title = "1. Instagram",
-                        Values = new ChartValues<ObservableValue> { new ObservableValue(random.Next(50000, 650000))},
+                        Values = new ChartValues<ObservableValue> { new ObservableValue()},
                         DataLabels = true
                     },new PieSeries
                     {
                         Title = "2. Twitter",
-                        Values = new ChartValues<ObservableValue> { new ObservableValue(random.Next(45000, 400000))},
+                        Values = new ChartValues<ObservableValue> { new ObservableValue()},
                         DataLabels = true
                     },new PieSeries
                     {
                         Title = "3. YouTube",
-                        Values = new ChartValues<ObservableValue> { new ObservableValue(random.Next(30000, 800000))},
+                        Values = new ChartValues<ObservableValue> { new ObservableValue()},
                         DataLabels = true
                     }
                 };
@@ -75,7 +75,7 @@ namespace camtastic_application
             }
             catch (Exception exp)
             {
-                MessageBox.Show("Pasta Grafiği Oluşturulamadı \n" + exp.Message);
+                MessageBox.Show("Please enter valid data \n" + exp.Message);
             }
 
             /// <summary>
@@ -95,10 +95,7 @@ namespace camtastic_application
             }
         }
 
-        private void DefaultLegend_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
 }
     
