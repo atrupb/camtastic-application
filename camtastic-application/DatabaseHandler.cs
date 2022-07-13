@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
@@ -14,39 +13,40 @@ namespace camtastic_application
 {
     class DatabaseHandler
     {
-        MySqlConnection conn;
+        public MySqlConnection conn;
         /// <summary>
         /// establishes a connection to the database
         /// </summary>
         public void Connect() //method to connect to SQL database
         {
-
+            string connStr = "server=localhost;user=root;database=project;port=3306;password=12345"; //IMPORTANT!!!! YOU NEED TO CHANGE SOME OF THE INFO SO IT WORKS ON YOUR OWN DATABASE!
+            conn = new MySqlConnection(connStr);
             try
             {
-                string connStr = "server=localhost;user=root;database=project;port=3306;password=12345"; //IMPORTANT!!!! YOU NEED TO CHANGE SOME OF THE INFO SO IT WORKS ON YOUR OWN DATABASE!
-                conn = new MySqlConnection(connStr);
-                conn.Open(); //opening sql connection
+                conn.Open();
             }
-            catch (MySqlException)
+            catch
             {
-                Console.WriteLine("There is an Error.");
+                MySqlConnection.ClearAllPools();
+                conn.Open();
             }
         }
         /// <summary>
         /// used to add a new row of data
         /// </summary>
-        public void AddData(int rating, string cameraBrand, string cameraModel, string url) //method to add a new photo to the database
+        public void AddData(int rating, string cameraBrand, string cameraModel, string url)
         {
-            string sqlQuery = $"INSERT INTO `photo` VALUES ('{url}', '{cameraBrand}', '{cameraModel}', '{rating}')"; //ive adjusted the table slightly, ive sent you the code to create one.
+            Connect();
+            string sqlQuery = $"INSERT INTO `photo` VALUES ('{url}', '{cameraBrand}', '{cameraModel}', '{rating}')";
             MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
-            cmd.ExecuteNonQuery(); //executes command
+            cmd.ExecuteNonQueryAsync();
         }
         /// <summary>
         /// used to grab every element from a row
         /// </summary>
         public List<Photo> GrabData()
         {
-            int picAmount = this.FindDataAmount();
+            Connect();
             string sqlQuery = $"SELECT * FROM `photo`";
             List<Photo> allPhotos = new List<Photo>();
             MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
@@ -66,16 +66,8 @@ namespace camtastic_application
                 tempPhoto.Camera = tempCamera; //we grab info needed and shove it into the temporary camera and photo
                 allPhotos.Add(tempPhoto);
             }
+            conn.Close();
             return allPhotos;
-        }
-        /// <summary>
-        /// used to get amount of data currently present in database
-        /// </summary>
-        public int FindDataAmount()
-        {
-            string sqlQuery2 = $"SELECT COUNT(*) FROM `photo`"; 
-            MySqlCommand cmd2 = new MySqlCommand(sqlQuery2, conn);
-            return (int)cmd2.ExecuteScalar(); //returns the amount of rows
         }
     }
 }

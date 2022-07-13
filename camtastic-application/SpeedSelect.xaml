@@ -1,0 +1,19 @@
+﻿<Window x:Class="camtastic_application.SpeedSelect"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:camtastic_application"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        Title="SpeedSelect" Height="180" Width="432" Background="#FF6E6E6E">
+    <Grid>
+        <RadioButton Content="Slow" HorizontalAlignment="Left" Margin="62,58,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_2"/>
+        <RadioButton Content="Average" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
+        <RadioButton Content="Fast" HorizontalAlignment="Left" Margin="324,58,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <Label Content="Please select information gathering speed." HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="Begin" HorizontalAlignment="Center" Margin="0,87,0,0" VerticalAlignment="Top" Width="63" Click="Button_Click"/>
+        <Label x:Name="warningLabel" Content="" HorizontalAlignment="Center" Margin="0,112,0,0" VerticalAlignment="Top" Foreground="Red"/>
+
+    </Grid>
+</Window>
