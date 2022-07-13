@@ -6,23 +6,18 @@
         xmlns:local="clr-namespace:camtastic_application"
        ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="Camtastic" Height="579" Width="1209">
+        Title="Camtastic" Height="579" Width="1209" Background="#FF0A275F">
     <Window.OpacityMask>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
             <GradientStop Color="White" Offset="1"/>
         </LinearGradientBrush>
     </Window.OpacityMask>
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black"/>
-            <GradientStop Color="#FFC52E95" Offset="0.42"/>
-        </LinearGradientBrush>
-    </Window.Background>
-    <Grid Margin="17,0,3,-1" RenderTransformOrigin="0.511,0.507" Height="653" VerticalAlignment="Bottom">
+    <Grid Margin="17,0,1,-2" RenderTransformOrigin="0.511,0.507" Height="654" VerticalAlignment="Bottom">
         <Grid.RowDefinitions>
-            <RowDefinition Height="66*"/>
-            <RowDefinition Height="401*"/>
+            <RowDefinition Height="92*"/>
+            <RowDefinition Height="520*"/>
+            <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
         <Grid.RenderTransform>
             <TransformGroup>
@@ -33,23 +28,23 @@
             </TransformGroup>
         </Grid.RenderTransform>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="6*"/>
-            <ColumnDefinition Width="619*"/>
-            <ColumnDefinition Width="82*"/>
-            <ColumnDefinition Width="7.873"/>
-            <ColumnDefinition Width="231.626"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="757*"/>
+            <ColumnDefinition Width="202*"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="223.626"/>
         </Grid.ColumnDefinitions>
-        <Ellipse HorizontalAlignment="Left" Height="549" Margin="23,-331,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.5,0.5" Grid.Column="4" Fill="#FFD0700E" Grid.RowSpan="2">
+        <Ellipse HorizontalAlignment="Left" Height="575" Margin="18,-321,0,0" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.5,0.5" Grid.Column="4" Fill="#FF0BBAD0" Grid.RowSpan="2">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="39.8"/>
+                    <RotateTransform Angle="42.121"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Ellipse HorizontalAlignment="Left" Height="549" Margin="160,-327,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.5,0.5" Grid.Column="4" Fill="#FF09BDD4" Grid.RowSpan="2">
+        <Ellipse HorizontalAlignment="Left" Height="575" Margin="117,-323,0,0" VerticalAlignment="Top" Width="103" RenderTransformOrigin="0.5,0.5" Grid.Column="4" Fill="#FFB515C7" Grid.RowSpan="2">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -59,7 +54,7 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Ellipse HorizontalAlignment="Left" Height="549" Margin="27,-336,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.5,0.5" Fill="#FF471080" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="3">
+        <Ellipse HorizontalAlignment="Left" Height="577" Margin="131,-344,0,0" VerticalAlignment="Top" Width="93" RenderTransformOrigin="0.5,0.5" Fill="#FFB515C7" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="3">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -69,20 +64,9 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <TextBlock HorizontalAlignment="Left" Margin="3,197,0,0" TextWrapping="Wrap" Text="Enjoy the work of experienced photographers" VerticalAlignment="Top" Height="130" Width="169" FontFamily="Segoe UI Semibold" FontSize="24" FontWeight="Normal" FontStyle="Italic" Grid.Row="1" Grid.Column="1" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="132,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Grid.Row="1" Text="Camtastic"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="117,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Grid.Row="1" Text="Camtastic"/>
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="268,103,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="5,335,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Inspire yourself and learn about the photo while you are watching the art work of people around the world" VerticalAlignment="Top" Height="75" Width="210" Foreground="White" FontFamily="Arial" RenderTransformOrigin="0.5,0.5">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="-0.009"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0.004"/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <Ellipse Grid.Column="2" HorizontalAlignment="Left" Height="549" Margin="52,408,0,0" Grid.Row="1" VerticalAlignment="Top" Width="88" Fill="#FF14B5C1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3">
+        <Ellipse Grid.Column="2" HorizontalAlignment="Left" Height="549" Margin="53,415,0,0" Grid.Row="1" VerticalAlignment="Top" Width="105" Fill="#FFB515C7" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -92,7 +76,7 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Ellipse Grid.Column="1" Margin="721,372,21,-438" Grid.Row="1" Fill="#FFC7740F" RenderTransformOrigin="0.5,0.5">
+        <Ellipse Grid.Column="1" Margin="677,382,186,-448" Grid.Row="1" Fill="#FF0BC4D0" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -102,7 +86,7 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Ellipse Grid.Column="1" HorizontalAlignment="Left" Height="549" Margin="609,381,0,0" Grid.Row="1" VerticalAlignment="Top" Width="88" Fill="#FF5012AD" RenderTransformOrigin="0.5,0.5">
+        <Ellipse Grid.Column="1" HorizontalAlignment="Left" Height="549" Margin="606,386,0,0" Grid.Row="1" VerticalAlignment="Top" Width="94" Fill="#FFB515C7" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
             <Ellipse.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -112,13 +96,22 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Image Grid.Column="1" HorizontalAlignment="Left" Source="/Firefox-Browser-Logo-Transparent-PNG.png" Height="100" Margin="14,47,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="getInfoButton" Content="Collect information for all photos." Grid.Column="1" HorizontalAlignment="Left" Margin="811,235,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="240" Click="GetInfoButton_Click" Grid.ColumnSpan="4" Background="#FFFF03FF" FontWeight="Bold"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="295,394,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="361" FontSize="20" FontFamily="Segoe UI Black" Foreground="White" Text="Information of the photo:&#xD;&#xA;"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="160,449,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Brand of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="354,448,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Model of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="547,448,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Rating of the photo" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="White"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="299,257,0,0" Grid.Row="1" TextWrapping="Wrap" Text=" The URL of the Photo here:" VerticalAlignment="Top" Height="83" Width="322" Foreground="#FFFBFBFB" FontFamily="Arial Black" FontSize="16"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Source="/Firefox-Browser-Logo-Transparent-PNG.png" Height="100" Margin="8,17,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.426,0.11"/>
+        <Button x:Name="getInfoButton" Content="Collect information for all photos." Grid.Column="2" HorizontalAlignment="Left" Margin="18,145,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="240" Click="GetInfoButton_Click" Grid.ColumnSpan="3" Background="#FF0BBAD0" FontWeight="Bold" BorderBrush="{x:Null}" Opacity="0.8" RenderTransformOrigin="1,0" Foreground="White"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="16,255,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="260" FontSize="20" FontFamily="Segoe UI" Foreground="White" Text="Information of the photo:&#xD;&#xA;" Grid.ColumnSpan="3" FontWeight="Bold"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="637,368,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Brand of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Segoe UI" Foreground="White" Grid.ColumnSpan="2"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="58,370,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Model of the camera" VerticalAlignment="Top" Height="28" Width="174" FontSize="14" FontFamily="Segoe UI" Foreground="White" RenderTransformOrigin="1.276,-0.13" Grid.ColumnSpan="3">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.002"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.009"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Grid.Column="4" HorizontalAlignment="Left" Margin="41,369,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Rating of the photo" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Segoe UI" Foreground="White"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="127,257,0,0" Grid.Row="1" TextWrapping="Wrap" Text=" The URL of the Photo here:" VerticalAlignment="Top" Height="33" Width="260" Foreground="#FFFBFBFB" FontFamily="Segoe UI" FontSize="16"/>
 
         <DockPanel>
             <Border DockPanel.Dock="Left">
@@ -138,18 +131,27 @@
             </Border>
             <Border DockPanel.Dock="Right" Width="5"/>
         </DockPanel>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="-685,187,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <ContentControl Content="ContentControl" Grid.Column="4" HorizontalAlignment="Left" Margin="48,738,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Button x:Name="openChartWindow" Content="Check top 10 brands from data collected." Grid.Column="1" HorizontalAlignment="Left" Margin="809,317,0,0" Grid.Row="1" VerticalAlignment="Top" Height="29" Width="245" Click="ChartButton_Click" Background="#FFEC00E1" Grid.ColumnSpan="4" FontWeight="Bold"/>
-        <Label x:Name="percentDone" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="58,269,0,0" Grid.Row="1" VerticalAlignment="Top" Width="104" Grid.ColumnSpan="3" FontWeight="Bold" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="photoUrlBox" Grid.Column="1" HorizontalAlignment="Left" Margin="267,283,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="326" Height="26" FontSize="16" BorderBrush="#FFBB07FF" Background="#FFFFD0F9"/>
-        <Button Content="Get additional information" Grid.Column="1" HorizontalAlignment="Left" Margin="346,320,0,0" Grid.Row="1" VerticalAlignment="Top" Width="161" Background="#FFC221FF" Click="Button_Click"/>
-        <Label Content="Check single photo data here:" Grid.Column="1" HorizontalAlignment="Left" Margin="266,163,0,0" Grid.Row="1" VerticalAlignment="Top" Height="73" Width="332" FontSize="24"/>
-        <Label x:Name="badLinkLabel" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="295,336,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF786C6C" FontSize="14"/>
-        <Label Content="Collect information for all photos here:" Grid.Column="1" HorizontalAlignment="Left" Margin="721,164,0,0" Grid.Row="1" VerticalAlignment="Top" Height="73" Width="531" FontSize="24" Grid.ColumnSpan="4"/>
-        <TextBlock x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="150,468,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="Black" TextAlignment="Center"/>
-        <TextBlock x:Name="Model" Grid.Column="1" HorizontalAlignment="Left" Margin="343,468,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="Black" TextAlignment="Center"/>
-        <TextBlock x:Name="Rating" Grid.Column="1" HorizontalAlignment="Left" Margin="531,468,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Arial Black" Foreground="Black" TextAlignment="Center"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="-685,187,0,0" Grid.Row="1" VerticalAlignment="Top" Height="15" Width="71"/>
+        <ContentControl Content="ContentControl" Grid.Column="4" HorizontalAlignment="Left" Margin="48,218,0,0" Grid.Row="2" VerticalAlignment="Top" Height="0" Width="82"/>
+        <Button x:Name="openChartWindow" Content="Check top 10 brands from data collected." Grid.Column="2" HorizontalAlignment="Left" Margin="19,193,0,299" Grid.Row="1" Width="239" Click="ChartButton_Click" Background="#FF0BBAD0" Grid.ColumnSpan="3" FontWeight="Bold" Foreground="White" Opacity="0.8"/>
+        <TextBox x:Name="photoUrlBox" Grid.Column="1" HorizontalAlignment="Left" Margin="76,306,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Height="37" FontSize="16" BorderBrush="Black" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
+        <Button Content="Get additional information" Grid.Column="1" HorizontalAlignment="Left" Margin="99,368,0,0" Grid.Row="1" VerticalAlignment="Top" Width="274" Click="Button_Click" FontSize="14" BorderBrush="#FF7D7777" Foreground="White" Height="34" Grid.IsSharedSizeScope="True" Background="#FF0BBAC9" Opacity="0.8"/>
+        <Label Content="Check single photo data " Grid.Column="1" HorizontalAlignment="Left" Margin="91,156,0,0" Grid.Row="1" VerticalAlignment="Top" Height="73" Width="332" FontSize="24" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="badLinkLabel" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="295,336,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="#FF786C6C" FontSize="14" Height="29" Width="10"/>
+        <TextBlock x:Name="Brand" Grid.Column="1" HorizontalAlignment="Left" Margin="626,310,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="46" Width="165" FontSize="14" FontFamily="Arial Black" Foreground="Black" TextAlignment="Center" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="Model" Grid.Column="2" HorizontalAlignment="Left" Margin="43,303,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="50" Width="163" FontSize="14" FontFamily="Arial Black" Foreground="Black" TextAlignment="Center" Grid.ColumnSpan="3"/>
+        <TextBlock x:Name="Rating" Grid.Column="4" HorizontalAlignment="Left" Margin="25,304,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="50" Width="166" FontSize="14" FontFamily="Arial Black" Foreground="Black" TextAlignment="Center"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="21,100,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Other available options" VerticalAlignment="Top" Height="53" Width="222" RenderTransformOrigin="0.5,0.5" FontSize="20" Grid.ColumnSpan="3" Foreground="White" FontWeight="Bold">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.167"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
 
 
     </Grid>

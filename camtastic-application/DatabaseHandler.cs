@@ -28,8 +28,9 @@ namespace camtastic_application
             catch
             {
                 MySqlConnection.ClearAllPools();
-                conn.Open();
+                
             }
+            conn.Open();
         }
         /// <summary>
         /// used to add a new row of data

@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="eGT8N.png" />
     <None Remove="Firefox-Browser-Logo-Transparent-PNG.png" />
     <None Remove="Image1.jpg" />
   </ItemGroup>
@@ -21,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="eGT8N.png" />
     <Resource Include="Firefox-Browser-Logo-Transparent-PNG.png" />
     <Resource Include="Image1.jpg" />
   </ItemGroup>

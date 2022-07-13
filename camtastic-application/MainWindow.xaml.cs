@@ -30,14 +30,32 @@ namespace camtastic_application
         ChromeDriverService service;
         ChromeOptions options;
 
-        static Random random;
+        bool buttonClicked = false;
+
+        public static Button getInfoButtonAccess;
+        public static Label percentage;
+        public static bool isSearching = false;
+        readonly MainWindowViewModel methodExtender = new MainWindowViewModel();
+        DatabaseHandler database = new DatabaseHandler();
         public MainWindow()
         {
             InitializeComponent();
-            random = new Random();
+            database.Connect(); // this connects us to our database
+            getInfoButtonAccess = getInfoButton;
+            percentage = percentDone;
 
-            Brand.Text = "Sony";
-            Model.Text = "Sony";
+            service = ChromeDriverService.CreateDefaultService();
+            service.HideCommandPromptWindow = true;
+            options = new ChromeOptions();
+            options.AddArguments(new List<string>() //assigning a bunch of chromedrive options for optimization
+            {
+                "--silent-launch",
+                "--no-startup-window",
+                "--no-sandbox",
+                "--headless",
+                "--disable-gpu"
+            });
+            options.PageLoadStrategy = PageLoadStrategy.Eager;
         }
         /// <summary>
         /// event handler for getInfo button click
@@ -46,62 +64,56 @@ namespace camtastic_application
         {
             if (isSearching == false)
             {
-                DataContext = new object();
-
-                SeriesCollection = new SeriesCollection
+                SpeedSelect window = new SpeedSelect();
+                window.Show();
+            }
+            else
+            {
+                getInfoButton.Content = "Gathering has been canceled. Click to try again.";
+                isSearching = false;
+                methodExtender.CancelInfoCollection();
+            }
+        }
+        /// <summary>
+        /// event handler for chartButton button click
+        /// </summary>
+        private void ChartButton_Click(object sender, RoutedEventArgs e)
+        {
+            ChartInfo window = new ChartInfo();
+            window.Show();
+        }
+        /// <summary>
+        /// event handler for single photo button
+        /// </summary>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!buttonClicked)
+            {
+                string url = photoUrlBox.Text;
+                var web = new ChromeDriver(service, options);  //selenium doing its magic
+                try
                 {
-                    new PieSeries
-                    {
-                        Title = "1. Instagram",
-                        Values = new ChartValues<ObservableValue> { new ObservableValue(random.Next(50000, 650000))},
-                        DataLabels = true
-                    },new PieSeries
-                    {
-                        Title = "2. Twitter",
-                        Values = new ChartValues<ObservableValue> { new ObservableValue(random.Next(45000, 400000))},
-                        DataLabels = true
-                    },new PieSeries
-                    {
-                        Title = "3. YouTube",
-                        Values = new ChartValues<ObservableValue> { new ObservableValue(random.Next(30000, 800000))},
-                        DataLabels = true
-                    }
-                };
-                DataContext = this;
-            }
-            catch (Exception exp)
-            {
-                MessageBox.Show("Pasta Grafiği Oluşturulamadı \n" + exp.Message);
-            }
-
-            /// <summary>
-            /// event handler for getInfo button click
-            /// </summary>
-
-        }
-        private void GetInfoButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (ThreadPool.PendingWorkItemCount == 0)
-            {
-                getInfoButton.Content = "Getting info, please wait."; //if no process is being worked on, we change the text
-                methodExtender.GetInfo();
-
-
-
+                    web.Navigate().GoToUrl(url);
+                    int rating = int.Parse(web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[2]/div/div/div[2]/div/ul[1]/li[1]/ul/li[1]/span[2]/span")).Text);
+                    string cameraBrand = web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[1]/div[2]/span")).GetAttribute("textContent");
+                    string cameraModel = web.FindElement(By.XPath("/html/body/div[4]/div[5]/div[1]/div[1]/div/div[2]/div/div[2]/div[2]/div[2]/span")).GetAttribute("textContent");
+                    Brand.Text = cameraBrand;
+                    Rating.Text = rating.ToString();
+                    Model.Text = cameraModel;
+                }
+                catch
+                {
+                    LabelTimer();
+                }
             }
         }
-
-        private void DefaultLegend_Loaded(object sender, RoutedEventArgs e)
+        private async void LabelTimer()
         {
-
+            buttonClicked = true;
+            badLinkLabel.Content = "Link is invalid or has no metadata attached.";
+            await Task.Delay(4000);
+            badLinkLabel.Content = "";
+            buttonClicked = false;
         }
     }
 }
-    
-
-
-        
-        
-    
-    
-
