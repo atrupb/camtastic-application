@@ -7,6 +7,13 @@
        ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="Camtastic" Height="579" Width="1209">
+    <Window.Resources>
+        <Storyboard x:Key="ColumnAnimation">
+            <DoubleAnimationUsingKeyFrames>
+                <EasingDoubleKeyFrame />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF000E3A"/>
@@ -70,7 +77,6 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="118,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Grid.Row="1" Text="Camtastic"/>
         <Image Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="337,93,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
         <Ellipse Grid.Column="2" HorizontalAlignment="Left" Height="549" Margin="53,415,0,0" Grid.Row="1" VerticalAlignment="Top" Width="105" Fill="#FFB515C7" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
             <Ellipse.RenderTransform>
@@ -102,7 +108,11 @@
                 </TransformGroup>
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Image Grid.Column="1" HorizontalAlignment="Left" Source="/Firefox-Browser-Logo-Transparent-PNG.png" Height="100" Margin="9,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.426,0.11"/>
+        <Grid x:Name="Logo" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="9,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="646">
+           
+                    <TextBlock HorizontalAlignment="Left" Margin="109,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Text="Camtastic"/>
+            <Image HorizontalAlignment="Left" Source="/Firefox-Browser-Logo-Transparent-PNG.png" Height="100" VerticalAlignment="Center" Width="100" RenderTransformOrigin="0.426,0.11"/>
+        </Grid>
         <Button x:Name="getInfoButton" Content="Collect information for all photos." Grid.Column="2" HorizontalAlignment="Left" Margin="18,199,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="240" Click="GetInfoButton_Click" Grid.ColumnSpan="3" Background="#FF0BBAD0" FontWeight="Bold" BorderBrush="{x:Null}" Opacity="0.8" RenderTransformOrigin="1,0" Foreground="White"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="185,394,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="260" FontSize="20" FontFamily="Segoe UI" Foreground="White" Text="Information of the photo:&#xD;&#xA;" FontWeight="Bold" RenderTransformOrigin="0.464,0.514"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="58,434,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Brand of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Segoe UI" Foreground="White"/>

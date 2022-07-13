@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:camtastic_application"
         ResizeMode="NoResize"
         mc:Ignorable="d"
-        Title="SpeedSelect" Height="180" Width="432" Background="#FF6E6E6E">
+        Title="Select Speed" Height="180" Width="432" Background="#FF6E6E6E">
     <Grid>
         <RadioButton Content="Slow" HorizontalAlignment="Left" Margin="62,58,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_2"/>
         <RadioButton Content="Average" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
