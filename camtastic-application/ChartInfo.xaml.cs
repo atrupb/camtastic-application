@@ -58,16 +58,18 @@ namespace camtastic_application
             ((BarSeries)mcChart.Series[0]).ItemsSource = ratingsPerBrand.OrderBy(x => x.Value); //we add the stuff to the chart ordered by value
 
             //these are customizations, im not supposed to do these in c# but i barely know xaml.
+            Color color1 = (Color)ColorConverter.ConvertFromString("#FF000E3A");
+            Color color2 = (Color)ColorConverter.ConvertFromString("#FF191E7C");
             LinearGradientBrush myLinearGradientBrush =
             new LinearGradientBrush();
             myLinearGradientBrush.StartPoint = new Point(0.5, 0);
             myLinearGradientBrush.EndPoint = new Point(0.5, 1);
             myLinearGradientBrush.GradientStops.Add(
-                new GradientStop(Colors.Black, 0.0));
+                new GradientStop(color1, 0.0));
             myLinearGradientBrush.GradientStops.Add(
-                new GradientStop(Colors.DeepPink, 1));
+                new GradientStop(color2, 1));
             mcChart.Background = myLinearGradientBrush;
-            mcChart.Foreground = new SolidColorBrush(Colors.DarkSlateGray);
+            mcChart.Foreground = new SolidColorBrush(Colors.Gray);
             mcChart.FontSize = 15;
             mcChart.FontWeight = FontWeights.Bold;
         }
