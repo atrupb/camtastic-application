@@ -173,6 +173,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+       
     </Window.Resources>
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -269,11 +270,10 @@
             </Ellipse.RenderTransform>
         </Ellipse>
         <Grid x:Name="Logo" Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="9,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="646">
-           
-                    <TextBlock HorizontalAlignment="Left" Margin="109,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Text="Camtastic"/>
+            <TextBlock HorizontalAlignment="Left" Margin="109,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="537" Foreground="White" FontFamily="Lato Semibold" FontSize="36" Text="Camtastic"/>
             <Image HorizontalAlignment="Left" Source="/Firefox-Browser-Logo-Transparent-PNG.png" Height="100" VerticalAlignment="Center" Width="100" RenderTransformOrigin="0.426,0.11"/>
         </Grid>
-        <Button x:Name="getInfoButton" Content="Collect information for all photos." Grid.Column="2" HorizontalAlignment="Left" Margin="18,199,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="240" Click="GetInfoButton_Click" Grid.ColumnSpan="3" Background="#FF0BBAD0" FontWeight="Bold" BorderBrush="{x:Null}" Opacity="0.8" RenderTransformOrigin="1,0" Foreground="White"/>
+        <Button Style="{DynamicResource RoundedStyle2}" x:Name="getInfoButton" Content="Collect information for all photos." Grid.Column="2" HorizontalAlignment="Left" Margin="8,191,0,0" Grid.Row="1" VerticalAlignment="Top" Height="35" Width="256" Click="GetInfoButton_Click" Grid.ColumnSpan="3" Background="#FF0BBAD0" BorderBrush="{x:Null}" Opacity="0.8" RenderTransformOrigin="1,0" Foreground="White"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="185,394,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="260" FontSize="20" FontFamily="Segoe UI" Foreground="White" Text="Information of the photo:&#xD;&#xA;" FontWeight="Bold" RenderTransformOrigin="0.464,0.514"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="58,434,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Brand of the camera" VerticalAlignment="Top" Height="28" Width="187" FontSize="14" FontFamily="Segoe UI" Foreground="White"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="237,435,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Model of the camera" VerticalAlignment="Top" Height="28" Width="174" FontSize="14" FontFamily="Segoe UI" Foreground="White" RenderTransformOrigin="1.276,-0.13">
@@ -309,7 +309,7 @@
         </DockPanel>
         <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="-685,187,0,0" Grid.Row="1" VerticalAlignment="Top" Height="15" Width="71"/>
         <ContentControl Content="ContentControl" Grid.Column="4" HorizontalAlignment="Left" Margin="48,218,0,0" Grid.Row="2" VerticalAlignment="Top" Height="0" Width="82"/>
-        <Button Style="{DynamicResource RoundedStyle2}" x:Name="openChartWindow" Content="Check top 10 brands from data collected." Grid.Column="2" HorizontalAlignment="Left" Margin="17,256,0,229" Grid.Row="1" Width="260" Click="ChartButton_Click" Background="#FF0BBAD0" Grid.ColumnSpan="3" FontWeight="Normal" Foreground="White" Opacity="0.8"/>
+        <Button Style="{DynamicResource RoundedStyle2}" x:Name="openChartWindow" Content="Check top 10 brands from data collected." Grid.Column="2" HorizontalAlignment="Left" Margin="7,248,0,237" Grid.Row="1" Width="260" Click="ChartButton_Click" Background="#FF0BBAD0" Grid.ColumnSpan="3" FontWeight="Normal" Foreground="White" Opacity="0.8"/>
         <TextBox x:Name="photoUrlBox" Grid.Column="1" HorizontalAlignment="Left" Margin="144,245,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="327" Height="37" FontSize="16" BorderBrush="Black" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="White"/>
         <Button Style="{DynamicResource RoundedStyle1}" Content="Get additional information" Grid.Column="1" HorizontalAlignment="Left" Margin="171,307,0,0" Grid.Row="1" VerticalAlignment="Top" Width="274" Click="Button_Click" FontSize="14" BorderBrush="#FF7D7777" Foreground="White" Height="34" Grid.IsSharedSizeScope="True" Background="#FF0BBAC9" Opacity="0.8"/>
         <Label Content="Check single photo data " Grid.Column="1" HorizontalAlignment="Left" Margin="166,146,0,0" Grid.Row="1" VerticalAlignment="Top" Height="73" Width="332" FontSize="24" Foreground="White" FontWeight="Bold"/>
@@ -327,7 +327,7 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-        <Label x:Name="percentDone" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="99,225,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" Foreground="White"/>
+        <Label x:Name="percentDone" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="99,224,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" Foreground="White"/>
 
 
 

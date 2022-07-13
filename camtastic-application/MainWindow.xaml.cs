@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using System.Threading;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Windows.Media.Animation;
 
 namespace camtastic_application
 {
